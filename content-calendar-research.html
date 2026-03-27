@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sauna Plunge — Keyword Research & 26-Week Content Calendar</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f0; color: #1a1a1a; line-height: 1.6; }
+
+  .header { background: linear-gradient(135deg, #1a3a4a 0%, #2d6a8a 100%); color: white; padding: 48px 40px; }
+  .header h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 8px; }
+  .header .subtitle { font-size: 1.1rem; opacity: 0.85; }
+  .header .meta { margin-top: 16px; font-size: 0.9rem; opacity: 0.7; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+
+  .alert { background: #fff8e1; border-left: 4px solid #f59e0b; padding: 16px 20px; border-radius: 6px; margin-bottom: 32px; font-size: 0.95rem; }
+  .alert strong { color: #b45309; }
+
+  h2 { font-size: 1.6rem; font-weight: 700; color: #1a3a4a; margin: 48px 0 16px; border-bottom: 3px solid #e0e0d8; padding-bottom: 10px; }
+  h3 { font-size: 1.15rem; font-weight: 700; color: #2d6a8a; margin: 28px 0 12px; }
+  p { margin-bottom: 12px; color: #333; }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin-bottom: 32px; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.08); font-size: 0.9rem; }
+  th { background: #1a3a4a; color: white; padding: 12px 14px; text-align: left; font-weight: 600; white-space: nowrap; }
+  td { padding: 11px 14px; border-bottom: 1px solid #f0f0ea; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #fafaf7; }
+  tr:hover td { background: #f0f7ff; }
+
+  /* Badges */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; }
+  .kd-0  { background: #dcfce7; color: #166534; }
+  .kd-low { background: #dbeafe; color: #1e3a8a; }
+  .kd-med { background: #fef9c3; color: #854d0e; }
+  .kd-high { background: #fee2e2; color: #991b1b; }
+  .pri-high { background: #dcfce7; color: #166534; }
+  .pri-med { background: #dbeafe; color: #1e3a8a; }
+  .pri-low { background: #f3f4f6; color: #374151; }
+  .cluster-gym { background: #fce7f3; color: #9d174d; }
+  .cluster-cp { background: #dbeafe; color: #1e3a8a; }
+  .cluster-hs { background: #dcfce7; color: #166534; }
+  .cluster-ir { background: #fef3c7; color: #92400e; }
+  .cluster-ben { background: #ede9fe; color: #5b21b6; }
+  .cluster-comp { background: #f3f4f6; color: #374151; }
+
+  /* Calendar weeks */
+  .week-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-bottom: 40px; }
+  .week-card { background: white; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); overflow: hidden; }
+  .week-card-header { padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; }
+  .week-num { font-size: 0.8rem; font-weight: 700; color: white; background: #1a3a4a; padding: 3px 10px; border-radius: 20px; }
+  .week-card-body { padding: 14px 16px; }
+  .week-card-body h4 { font-size: 0.98rem; font-weight: 700; color: #1a3a4a; margin-bottom: 8px; }
+  .week-card-body .keyword-target { font-family: monospace; background: #f5f5f0; padding: 4px 8px; border-radius: 4px; font-size: 0.82rem; display: block; margin-bottom: 8px; }
+  .week-card-body .stats { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+  .stat-chip { background: #f0f7ff; border: 1px solid #bfdbfe; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; color: #1e40af; }
+  .week-card-body .brief { font-size: 0.83rem; color: #555; margin-bottom: 8px; }
+  .week-card-body .money { font-size: 0.8rem; color: #166534; background: #f0fdf4; padding: 4px 8px; border-radius: 4px; }
+
+  .section-intro { background: white; border-radius: 10px; padding: 20px 24px; margin-bottom: 24px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+
+  .toc { background: white; border-radius: 10px; padding: 24px 28px; margin-bottom: 40px; box-shadow: 0 1px 6px rgba(0,0,0,0.08); }
+  .toc h3 { margin-top: 0; color: #1a3a4a; }
+  .toc ol { padding-left: 20px; }
+  .toc li { padding: 3px 0; }
+  .toc a { color: #2d6a8a; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .built-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-bottom: 32px; }
+  .built-card { background: white; border-radius: 8px; padding: 12px 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border-left: 4px solid #10b981; }
+  .built-card .path { font-family: monospace; font-size: 0.8rem; color: #555; margin-bottom: 4px; }
+  .built-card .title { font-size: 0.9rem; font-weight: 600; color: #1a3a4a; }
+  .built-card .vol { font-size: 0.78rem; color: #666; margin-top: 4px; }
+
+  footer { text-align: center; padding: 40px 24px; color: #999; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>the-sauna-plunge.com</h1>
+  <div class="subtitle">Keyword Research & 26-Week Content Calendar</div>
+  <div class="meta">Compiled March 2026 &nbsp;·&nbsp; Niche: Sauna & Cold Plunge &nbsp;·&nbsp; Goal: Passive ad + affiliate income</div>
+</div>
+
+<div class="container">
+
+  <div class="alert">
+    <strong>Note on data sources:</strong> Original keyword metrics (KD, volume, traffic potential) for the 15 initial pages came from live Ahrefs Keyword Explorer data pulled in session 1. Ahrefs MCP returned "Insufficient plan" errors during session 2 (subscription likely expired). New keyword estimates are based on Ahrefs data pulled earlier this session plus web research. Volume/KD figures marked with <em>(est.)</em> are conservative estimates based on comparable keywords from the original research.
+  </div>
+
+  <div class="toc">
+    <h3>Contents</h3>
+    <ol>
+      <li><a href="#built">Pages Already Built (15 articles + supporting pages)</a></li>
+      <li><a href="#clusters">Keyword Clusters & Opportunity Map</a></li>
+      <li><a href="#gym-guide">Gym Guide Opportunities</a></li>
+      <li><a href="#cold-plunge">Cold Plunge / Ice Bath Opportunities</a></li>
+      <li><a href="#infrared">Infrared Sauna Opportunities</a></li>
+      <li><a href="#benefits">Sauna Benefits Opportunities</a></li>
+      <li><a href="#products">Products & Accessories Opportunities</a></li>
+      <li><a href="#comparison">Comparison & Informational</a></li>
+      <li><a href="#calendar">26-Week Content Calendar</a></li>
+      <li><a href="#monetization">Monetization Notes by Cluster</a></li>
+    </ol>
+  </div>
+
+  <!-- ======================================= -->
+  <h2 id="built">Pages Already Built</h2>
+  <p>These 20 pages are live in <code>/outputs/the-sauna-plunge-site/</code>. All have proper SEO structure, JSON-LD schema, and affiliate hooks.</p>
+  <div class="built-grid">
+    <div class="built-card"><div class="path">index.html</div><div class="title">Home Page</div><div class="vol">WebSite schema · links all 3 clusters</div></div>
+    <div class="built-card"><div class="path">does-planet-fitness-have-sauna/</div><div class="title">Does Planet Fitness Have a Sauna?</div><div class="vol">12,000 vol · KD 0 · Answer: No</div></div>
+    <div class="built-card"><div class="path">does-anytime-fitness-have-sauna/</div><div class="title">Does Anytime Fitness Have a Sauna?</div><div class="vol">1,000 vol · KD 1 · 18K traffic potential</div></div>
+    <div class="built-card"><div class="path">does-ymca-have-sauna/</div><div class="title">Does the YMCA Have a Sauna?</div><div class="vol">KD 0 · 24K traffic potential</div></div>
+    <div class="built-card"><div class="path">does-24-hour-fitness-have-sauna/</div><div class="title">Does 24 Hour Fitness Have a Sauna?</div><div class="vol">KD 3 (est.) · varies by tier</div></div>
+    <div class="built-card"><div class="path">does-la-fitness-have-sauna/</div><div class="title">Does LA Fitness Have a Sauna?</div><div class="vol">KD 1 (est.) · Yes, most locations</div></div>
+    <div class="built-card"><div class="path">gym-with-sauna-near-me/</div><div class="title">Gym With Sauna Near Me</div><div class="vol">6,200 vol · KD 24 · 72K traffic potential ⭐</div></div>
+    <div class="built-card"><div class="path">diy-cold-plunge/</div><div class="title">DIY Cold Plunge</div><div class="vol">3,200 vol · KD 1 · HowTo schema</div></div>
+    <div class="built-card"><div class="path">cold-plunge-temperature/</div><div class="title">Cold Plunge Temperature</div><div class="vol">2,600 vol · KD 0 · Optimal 50–59°F</div></div>
+    <div class="built-card"><div class="path">how-often-to-cold-plunge/</div><div class="title">How Often to Cold Plunge</div><div class="vol">600 vol · KD 0 · 35K traffic potential ⭐</div></div>
+    <div class="built-card"><div class="path">best-cold-plunge-tubs/</div><div class="title">Best Cold Plunge Tubs</div><div class="vol">33,000 vol · KD 8 · Top affiliate page ⭐</div></div>
+    <div class="built-card"><div class="path">cold-plunge-chiller/</div><div class="title">Cold Plunge Chiller</div><div class="vol">2,900 vol · KD 0 · High CPC affiliate</div></div>
+    <div class="built-card"><div class="path">sauna-and-cold-plunge/</div><div class="title">Sauna and Cold Plunge</div><div class="vol">1,800 vol · KD 7 · Contrast therapy</div></div>
+    <div class="built-card"><div class="path">home-sauna-cost/</div><div class="title">Home Sauna Cost</div><div class="vol">700 vol · KD 3 · 25K traffic potential ⭐</div></div>
+    <div class="built-card"><div class="path">costco-sauna/</div><div class="title">Costco Sauna</div><div class="vol">7,200 vol · KD 1 · Dundalk/Dynamic review</div></div>
+    <div class="built-card"><div class="path">sauna-at-home/</div><div class="title">Sauna at Home</div><div class="vol">1,900 vol · KD 6 · Setup guide</div></div>
+    <div class="built-card"><div class="path">cold-plunge/ (category)</div><div class="title">Cold Plunge Hub</div><div class="vol">Category landing page</div></div>
+    <div class="built-card"><div class="path">home-sauna/ (category)</div><div class="title">Home Sauna Hub</div><div class="vol">Category landing page</div></div>
+    <div class="built-card"><div class="path">gym-guide/ (category)</div><div class="title">Gym Guide Hub</div><div class="vol">Category landing page</div></div>
+    <div class="built-card"><div class="path">about/</div><div class="title">About + Affiliate Disclosure</div><div class="vol">Required for AdSense + Amazon Associates</div></div>
+  </div>
+
+  <!-- ======================================= -->
+  <h2 id="clusters">Keyword Cluster Overview</h2>
+  <div class="section-intro">
+    <p>The site covers 6 keyword clusters. The table below shows estimated cluster totals based on known data and comparable keywords.</p>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Cluster</th>
+          <th>Articles Available</th>
+          <th>Avg KD Range</th>
+          <th>Why It Works</th>
+          <th>Primary Monetization</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge cluster-gym">Gym Guide</span></td>
+          <td>10+ individual gym chains, plus "near me" roundup</td>
+          <td><span class="badge kd-0">KD 0–5</span></td>
+          <td>Searchers want a yes/no answer; KD near zero; dozens of chains = dozens of articles</td>
+          <td>Display ads (high traffic volume)</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-cp">Cold Plunge</span></td>
+          <td>Ice bath, DIY, temperature, protocol, products</td>
+          <td><span class="badge kd-low">KD 1–15</span></td>
+          <td>Fast-growing trend, strong affiliate potential, low competition still</td>
+          <td>Amazon + direct affiliates (Cold Pod, Plunge)</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-hs">Home Sauna</span></td>
+          <td>Barrel, outdoor, cost, setup, Costco, kit buying guide</td>
+          <td><span class="badge kd-low">KD 1–12</span></td>
+          <td>High purchase intent, $3K–$15K products = big commissions</td>
+          <td>Affiliate (SaunaLife, Dundalk, Dynamic Saunas)</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-ir">Infrared Sauna</span></td>
+          <td>Benefits, vs traditional, blanket, home pick guide</td>
+          <td><span class="badge kd-med">KD 8–20</span></td>
+          <td>$2K–$8K products; high CPC; HigherDOSE blanket is an easy affiliate</td>
+          <td>Affiliate (Sun Home, Clearlight, HigherDOSE)</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-ben">Sauna Benefits</span></td>
+          <td>Skin, weight loss, testosterone, heart, mental health, timing</td>
+          <td><span class="badge kd-low">KD 3–15</span></td>
+          <td>High informational volume; builds authority; ad revenue heavy</td>
+          <td>Display ads (high volume) + soft affiliate CTAs</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-comp">Comparisons</span></td>
+          <td>Sauna vs steam room, cold plunge vs ice bath, blanket vs cabin</td>
+          <td><span class="badge kd-med">KD 10–25</span></td>
+          <td>Decision-stage intent; great for both ads and affiliate clicks</td>
+          <td>Both ads and affiliate</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================================= -->
+  <h2 id="gym-guide">Gym Guide Keyword Opportunities</h2>
+  <p>This is the fastest traffic cluster. Each article takes 30 minutes to write and can rank #1 within weeks due to KD 0–3. There are 50+ gym chains in the US — enough content for 1–2 years. Prioritize chains with 1M+ members.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Article Title / Target Keyword</th><th>Vol (est.)</th><th>KD</th><th>Traffic Potential</th><th>Answer</th><th>Priority</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Does Gold's Gym Have a Sauna?</td><td>2,500 est.</td><td><span class="badge kd-0">1</span></td><td>4,000+</td><td>Yes — most locations; sauna, steam, pool</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Does Equinox Have a Sauna?</td><td>1,800 est.</td><td><span class="badge kd-0">2</span></td><td>3,500+</td><td>Steam at all clubs; dry sauna at ~26%</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Does Crunch Fitness Have a Sauna?</td><td>1,500 est.</td><td><span class="badge kd-0">1</span></td><td>3,000+</td><td>Select locations only (Signature tier)</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Does Life Time Fitness Have a Sauna?</td><td>1,200 est.</td><td><span class="badge kd-0">2</span></td><td>2,500+</td><td>Yes — luxury amenity at all full clubs</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Does VASA Fitness Have a Sauna?</td><td>900 est.</td><td><span class="badge kd-0">1</span></td><td>2,000+</td><td>Yes — most locations; not Basic membership</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Does Snap Fitness Have a Sauna?</td><td>700 est.</td><td><span class="badge kd-0">1</span></td><td>1,500+</td><td>Select locations only; franchise-dependent</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Does EOS Fitness Have a Sauna?</td><td>600 est.</td><td><span class="badge kd-0">1</span></td><td>1,200+</td><td>Some locations yes; check locally</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Does World Gym Have a Sauna?</td><td>500 est.</td><td><span class="badge kd-0">1</span></td><td>1,000+</td><td>Many locations yes; franchise-dependent</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Does UFC Gym Have a Sauna?</td><td>500 est.</td><td><span class="badge kd-0">1</span></td><td>1,000+</td><td>Select Training Center locations only</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Does Retro Fitness Have a Sauna?</td><td>400 est.</td><td><span class="badge kd-0">1</span></td><td>800+</td><td>Some, not all; franchise variation</td><td><span class="badge pri-low">LOW</span></td></tr>
+        <tr><td>Does Genesis Health Clubs Have a Sauna?</td><td>400 est.</td><td><span class="badge kd-0">1</span></td><td>800+</td><td>Yes — most full clubs</td><td><span class="badge pri-low">LOW</span></td></tr>
+        <tr><td>Does Orange Theory Have a Sauna?</td><td>800 est.</td><td><span class="badge kd-0">1</span></td><td>1,500+</td><td>No — HIIT-only format, no sauna</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Does F45 Have a Sauna?</td><td>400 est.</td><td><span class="badge kd-0">1</span></td><td>800+</td><td>No — studio format only</td><td><span class="badge pri-low">LOW</span></td></tr>
+        <tr><td>Does Planet Fitness Have a Steam Room?</td><td>3,000 est.</td><td><span class="badge kd-0">0</span></td><td>5,000+</td><td>No — add-on to PF does not offer steam</td><td><span class="badge pri-high">HIGH</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Long-tail bonus:</strong> Each gym article should also target "[Gym] sauna hours," "[Gym] sauna membership tier," and "best gym with sauna in [city]" — these all cluster together and boost traffic potential of each page.</p>
+
+  <!-- ======================================= -->
+  <h2 id="cold-plunge">Cold Plunge / Ice Bath Opportunities</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Article Title / Target Keyword</th><th>Vol (est.)</th><th>KD</th><th>Traffic Potential</th><th>Key Angle</th><th>Priority</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Ice Bath Benefits (Complete Guide)</td><td>5,000 est.</td><td><span class="badge kd-low">5</span></td><td>12,000+</td><td>Science-backed; testosterone, immunity, recovery, mood</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>How Long to Sit in an Ice Bath</td><td>3,500 est.</td><td><span class="badge kd-0">3</span></td><td>8,000+</td><td>Recommended 10–15 min; beginner progression</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Ice Bath Temperature Guide</td><td>2,400 est.</td><td><span class="badge kd-0">2</span></td><td>6,000+</td><td>Optimal 50–59°F; beginner vs advanced ranges</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Ice Bath vs Cold Plunge — What's the Difference?</td><td>2,000 est.</td><td><span class="badge kd-low">6</span></td><td>5,000+</td><td>Temp control, chiller vs ice, cost comparison</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Cold Plunge Before or After Workout?</td><td>1,800 est.</td><td><span class="badge kd-0">3</span></td><td>4,500+</td><td>Science says after for recovery; timing protocol</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Wim Hof Method Cold Plunge Guide</td><td>2,500 est.</td><td><span class="badge kd-low">8</span></td><td>5,000+</td><td>Breathing technique + cold combo; beginner guide</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Cold Plunge for Weight Loss — Does It Work?</td><td>1,500 est.</td><td><span class="badge kd-low">7</span></td><td>4,000+</td><td>Brown fat activation, norepinephrine; honest science</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Best Cold Plunge for Small Spaces</td><td>1,200 est.</td><td><span class="badge kd-low">6</span></td><td>3,000+</td><td>Ice Barrel, Cold Pod, stock tank options</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Stock Tank Cold Plunge (Cheap DIY Setup)</td><td>1,500 est.</td><td><span class="badge kd-0">3</span></td><td>3,500+</td><td>Rubbermaid/galvanized; cheapest option under $200</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Cold Plunge for Women — Is It Different?</td><td>800 est.</td><td><span class="badge kd-0">3</span></td><td>2,500+</td><td>Hormonal considerations, menstrual cycle timing, research</td><td><span class="badge pri-low">LOW</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================================= -->
+  <h2 id="infrared">Infrared Sauna Opportunities</h2>
+  <p>Infrared saunas are high-ticket ($2K–$8K) and growing fast. The CPC on these keywords is $2–$4, making them excellent for both affiliate and display income.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Article Title / Target Keyword</th><th>Vol (est.)</th><th>KD</th><th>Traffic Potential</th><th>Key Angle</th><th>Priority</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Infrared Sauna Benefits — The Complete Guide</td><td>8,000 est.</td><td><span class="badge kd-med">12</span></td><td>18,000+</td><td>Sleep, recovery, skin, circulation — cite studies</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Infrared Sauna vs Traditional Sauna</td><td>4,000 est.</td><td><span class="badge kd-low">10</span></td><td>9,000+</td><td>Temp, humidity, cost, health benefits side-by-side</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Best Infrared Sauna for Home (All Budgets)</td><td>5,000 est.</td><td><span class="badge kd-med">15</span></td><td>12,000+</td><td>Sun Home, Clearlight, Dynamic brands; 3 price tiers</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Infrared Sauna Blanket — Are They Worth It?</td><td>3,500 est.</td><td><span class="badge kd-low">8</span></td><td>8,000+</td><td>HigherDOSE review; vs full cabin; $500 entry point</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Near Infrared vs Far Infrared Sauna</td><td>2,500 est.</td><td><span class="badge kd-low">8</span></td><td>5,000+</td><td>NIR penetrates skin; FIR heats body deeper; which to buy</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>How to Use an Infrared Sauna (Beginner Guide)</td><td>2,000 est.</td><td><span class="badge kd-low">6</span></td><td>5,000+</td><td>Temperature, session length, hydration, frequency</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Infrared Sauna for Weight Loss — What the Science Says</td><td>2,000 est.</td><td><span class="badge kd-low">9</span></td><td>4,500+</td><td>Calorie burn, insulin sensitivity, realistic expectations</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Portable Infrared Sauna (Tent) — Worth Buying?</td><td>1,500 est.</td><td><span class="badge kd-low">6</span></td><td>3,500+</td><td>Serenelife, Durasage reviews; cheap entry option under $200</td><td><span class="badge pri-low">LOW</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================================= -->
+  <h2 id="benefits">Sauna Benefits Opportunities</h2>
+  <p>These are high-volume informational articles. Low affiliate potential but excellent for building domain authority and ad revenue. Write these as definitive, well-researched guides.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Article Title / Target Keyword</th><th>Vol (est.)</th><th>KD</th><th>Traffic Potential</th><th>Key Angle</th><th>Priority</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>How Long Should You Stay in a Sauna?</td><td>4,500 est.</td><td><span class="badge kd-low">5</span></td><td>10,000+</td><td>15–20 min optimal; beginner 5–10 min; risks of too long</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Sauna Before or After Workout?</td><td>4,000 est.</td><td><span class="badge kd-low">8</span></td><td>9,000+</td><td>After = recovery; before = warm-up; evidence both ways</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>How Often Should You Use a Sauna?</td><td>3,000 est.</td><td><span class="badge kd-low">5</span></td><td>7,000+</td><td>2–4x/week sweet spot; Finnish research; daily safety</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Does Sauna Increase Testosterone?</td><td>3,500 est.</td><td><span class="badge kd-low">10</span></td><td>8,000+</td><td>Mixed evidence; temporary spike; combined with cold plunge</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Sauna Benefits for Skin</td><td>3,000 est.</td><td><span class="badge kd-low">7</span></td><td>7,000+</td><td>Pore cleansing, collagen, hydration; tips not to overdo it</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Sauna Benefits for Weight Loss</td><td>2,500 est.</td><td><span class="badge kd-low">9</span></td><td>5,500+</td><td>Water weight vs fat loss; insulin sensitivity; realistic guide</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Sauna Heart Health Benefits</td><td>2,000 est.</td><td><span class="badge kd-low">8</span></td><td>5,000+</td><td>Finnish mortality studies; 4x/week reduces cardiac death risk</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Sauna for Anxiety and Mental Health</td><td>1,800 est.</td><td><span class="badge kd-low">7</span></td><td>4,500+</td><td>Heat shock proteins, endorphins, sleep improvement</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Sauna Etiquette — 10 Rules Every Beginner Should Know</td><td>1,500 est.</td><td><span class="badge kd-0">3</span></td><td>4,000+</td><td>Towel on wood, no phones, shower first, quiet rule</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Sauna Every Day — Is It Safe?</td><td>2,000 est.</td><td><span class="badge kd-low">6</span></td><td>5,000+</td><td>Research says yes for healthy adults; caveats for beginners</td><td><span class="badge pri-med">MED</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================================= -->
+  <h2 id="products">Products & Accessories Opportunities</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Article Title / Target Keyword</th><th>Vol (est.)</th><th>KD</th><th>Traffic Potential</th><th>Key Angle / Products</th><th>Priority</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Best Barrel Sauna (Buying Guide + Top Picks)</td><td>3,000 est.</td><td><span class="badge kd-low">10</span></td><td>7,000+</td><td>Dundalk, SaunaLife, True North; $4.5K–$10K range</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Outdoor Sauna Ideas &amp; Buying Guide</td><td>2,500 est.</td><td><span class="badge kd-low">9</span></td><td>6,000+</td><td>Barrel vs cabin vs prefab; placement, electrical, cost</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Best Sauna Accessories You Actually Need</td><td>2,000 est.</td><td><span class="badge kd-low">5</span></td><td>5,000+</td><td>Bucket + ladle, sauna hat, back brush, hygrometer, oils</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Best Sauna Heater (Wood-burning vs Electric)</td><td>2,500 est.</td><td><span class="badge kd-med">12</span></td><td>5,500+</td><td>Harvia, Finnleo, HUUM brands; kW sizing guide</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Sauna Kit — What to Look For Before You Buy</td><td>1,800 est.</td><td><span class="badge kd-low">8</span></td><td>4,000+</td><td>Pre-cut vs pre-built; wood types; what's included vs not</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Sauna Tent Review — Worth It vs a Real Sauna?</td><td>1,500 est.</td><td><span class="badge kd-low">6</span></td><td>3,500+</td><td>SweatTent, Durasage; $150–$400; temp limits vs full sauna</td><td><span class="badge pri-low">LOW</span></td></tr>
+        <tr><td>Sauna Suit — Do They Work for Weight Loss?</td><td>2,000 est.</td><td><span class="badge kd-low">8</span></td><td>4,500+</td><td>Water weight loss only; risks; who uses them (boxers, wrestlers)</td><td><span class="badge pri-low">LOW</span></td></tr>
+        <tr><td>Best Sauna Oils and Scents (Eucalyptus, Birch &amp; More)</td><td>1,200 est.</td><td><span class="badge kd-0">4</span></td><td>3,000+</td><td>Top scents, how to use, Finnish traditions (löyly)</td><td><span class="badge pri-low">LOW</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================================= -->
+  <h2 id="comparison">Comparison & Informational Opportunities</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Article Title / Target Keyword</th><th>Vol (est.)</th><th>KD</th><th>Traffic Potential</th><th>Key Angle</th><th>Priority</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sauna vs Steam Room — Which Is Better?</td><td>6,000 est.</td><td><span class="badge kd-med">15</span></td><td>14,000+</td><td>Dry vs humid heat; respiratory vs cardiovascular benefits; personal preference</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Cold Plunge vs Ice Bath — Is There a Difference?</td><td>2,500 est.</td><td><span class="badge kd-low">6</span></td><td>6,000+</td><td>Marketing name vs temp-controlled unit; cost breakdown</td><td><span class="badge pri-high">HIGH</span></td></tr>
+        <tr><td>Finnish Sauna vs Infrared Sauna</td><td>2,000 est.</td><td><span class="badge kd-low">9</span></td><td>5,000+</td><td>Traditional culture vs modern convenience; health equivalence</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Sauna Blanket vs Infrared Sauna Cabin</td><td>1,500 est.</td><td><span class="badge kd-low">7</span></td><td>3,500+</td><td>$500 vs $3K+; convenience vs full experience; HigherDOSE vs Sun Home</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Sauna vs Hot Tub — Which Should You Buy?</td><td>3,000 est.</td><td><span class="badge kd-med">12</span></td><td>7,000+</td><td>Health benefits, cost, maintenance, space considerations</td><td><span class="badge pri-med">MED</span></td></tr>
+        <tr><td>Cold Plunge vs Cryotherapy — Which Is Better?</td><td>1,500 est.</td><td><span class="badge kd-low">8</span></td><td>3,500+</td><td>$30/session cryo vs $1,500 plunge tub; evidence comparison</td><td><span class="badge pri-low">LOW</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======================================= -->
+  <h2 id="calendar">26-Week Content Calendar</h2>
+  <div class="section-intro">
+    <p>Ordered by <strong>traffic potential × time-sensitivity</strong>. Gym Guide articles are front-loaded because they rank fastest (KD 0–2). High-competition infrared/comparison articles come later when the domain has built authority from easy wins. Each week = one new article (~1,000–1,800 words).</p>
+    <p><strong>Estimated time per article:</strong> 60–90 minutes (or delegate to AI). <strong>Target publish day:</strong> Pick one consistent day per week (e.g. every Tuesday).</p>
+  </div>
+
+  <div class="week-grid">
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 1</span>
+        <span class="badge cluster-gym">Gym Guide</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Does Gold's Gym Have a Sauna?</h4>
+        <span class="keyword-target">does gold's gym have a sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~2,500</span><span class="stat-chip">KD: 1</span><span class="stat-chip">TP: 4,000+</span></div>
+        <p class="brief">Answer: Yes — most locations include sauna, steam room, pool, and hot tub. Cover membership tiers, what's included, and how it compares to LA Fitness for sauna access.</p>
+        <div class="money">💰 Display ads · Link to gym-with-sauna-near-me hub</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 2</span>
+        <span class="badge cluster-gym">Gym Guide</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Does Planet Fitness Have a Steam Room?</h4>
+        <span class="keyword-target">does planet fitness have a steam room</span>
+        <div class="stats"><span class="stat-chip">Vol: ~3,000</span><span class="stat-chip">KD: 0</span><span class="stat-chip">TP: 5,000+</span></div>
+        <p class="brief">Answer: No sauna or steam room at any PF location. Add context: what PF does have (HydroMassage, tanning in Black Card). Link to "gym with sauna near me" for alternatives.</p>
+        <div class="money">💰 Display ads · High volume from existing PF article authority</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 3</span>
+        <span class="badge cluster-cp">Cold Plunge</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Ice Bath Benefits — Complete Science Guide</h4>
+        <span class="keyword-target">ice bath benefits</span>
+        <div class="stats"><span class="stat-chip">Vol: ~5,000</span><span class="stat-chip">KD: 5</span><span class="stat-chip">TP: 12,000+</span></div>
+        <p class="brief">Cover the 8 key benefits with research citations: recovery, mood, immune system, metabolism, testosterone (nuanced), mental resilience, sleep, inflammation. Add FAQ schema.</p>
+        <div class="money">💰 Display ads · Link to best-cold-plunge-tubs + diy-cold-plunge</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 4</span>
+        <span class="badge cluster-gym">Gym Guide</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Does Equinox Have a Sauna?</h4>
+        <span class="keyword-target">does equinox have a sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~1,800</span><span class="stat-chip">KD: 2</span><span class="stat-chip">TP: 3,500+</span></div>
+        <p class="brief">Answer: Steam rooms at all 90 clubs; dry sauna at ~26% of locations; cold plunge at select flagship clubs. Cover membership cost ($179–$219/mo) vs the value proposition.</p>
+        <div class="money">💰 Display ads · Contrast with at-home sauna options</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 5</span>
+        <span class="badge cluster-ben">Benefits</span>
+      </div>
+      <div class="week-card-body">
+        <h4>How Long Should You Stay in a Sauna?</h4>
+        <span class="keyword-target">how long should you stay in a sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~4,500</span><span class="stat-chip">KD: 5</span><span class="stat-chip">TP: 10,000+</span></div>
+        <p class="brief">15–20 min optimal for experienced; 5–10 min for beginners. Cover traditional vs infrared timing differences. Risk of staying too long. Finnish protocol (3 rounds with cooling).</p>
+        <div class="money">💰 Display ads · Soft CTA to home sauna articles</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 6</span>
+        <span class="badge cluster-comp">Comparison</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Sauna vs Steam Room — Which Is Better?</h4>
+        <span class="keyword-target">sauna vs steam room</span>
+        <div class="stats"><span class="stat-chip">Vol: ~6,000</span><span class="stat-chip">KD: 15</span><span class="stat-chip">TP: 14,000+</span></div>
+        <p class="brief">Dry heat vs 100% humidity. Sauna: muscle recovery, cardiovascular. Steam: respiratory, skin hydration. Side-by-side comparison table. "Which should I use?" decision guide.</p>
+        <div class="money">💰 Display ads + affiliate links to home steam generators</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 7</span>
+        <span class="badge cluster-gym">Gym Guide</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Does Life Time Fitness Have a Sauna?</h4>
+        <span class="keyword-target">does life time fitness have a sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~1,200</span><span class="stat-chip">KD: 2</span><span class="stat-chip">TP: 2,500+</span></div>
+        <p class="brief">Yes — luxury amenity at all full-club locations. Cover steam rooms, cold plunge, eucalyptus towels, spa day passes. Membership cost ($150–$250/mo). Best Life Time club for wellness.</p>
+        <div class="money">💰 Display ads · Transition: "Want a sauna at home for less per month?"</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 8</span>
+        <span class="badge cluster-cp">Cold Plunge</span>
+      </div>
+      <div class="week-card-body">
+        <h4>How Long to Sit in an Ice Bath</h4>
+        <span class="keyword-target">how long to sit in an ice bath</span>
+        <div class="stats"><span class="stat-chip">Vol: ~3,500</span><span class="stat-chip">KD: 3</span><span class="stat-chip">TP: 8,000+</span></div>
+        <p class="brief">10–15 min for experienced; 2–5 min for beginners. Cover the Huberman/11-min protocol. Progression chart by week. Signs you've been in too long. FAQ schema for featured snippet.</p>
+        <div class="money">💰 Display ads · Link to cold-plunge-temperature + best-cold-plunge-tubs</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 9</span>
+        <span class="badge cluster-ir">Infrared</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Infrared Sauna Benefits — Complete Guide</h4>
+        <span class="keyword-target">infrared sauna benefits</span>
+        <div class="stats"><span class="stat-chip">Vol: ~8,000</span><span class="stat-chip">KD: 12</span><span class="stat-chip">TP: 18,000+</span></div>
+        <p class="brief">Cover 8 benefits: sleep, recovery, detox, circulation, skin, pain relief, weight loss, mental health. Include study citations. Comparison to traditional sauna. Beginner protocol section.</p>
+        <div class="money">💰 Ads + affiliate: Sun Home ($2,500+), Clearlight, HigherDOSE blanket</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 10</span>
+        <span class="badge cluster-gym">Gym Guide</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Does Crunch Fitness Have a Sauna?</h4>
+        <span class="keyword-target">does crunch fitness have a sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~1,500</span><span class="stat-chip">KD: 1</span><span class="stat-chip">TP: 3,000+</span></div>
+        <p class="brief">Answer: Signature tier locations only. Cover Crunch tiers (Classic, Signature, Gym Signature). What amenities are included per tier. How to find a Crunch with sauna near you.</p>
+        <div class="money">💰 Display ads</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 11</span>
+        <span class="badge cluster-ben">Benefits</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Sauna Before or After Workout?</h4>
+        <span class="keyword-target">sauna before or after workout</span>
+        <div class="stats"><span class="stat-chip">Vol: ~4,000</span><span class="stat-chip">KD: 8</span><span class="stat-chip">TP: 9,000+</span></div>
+        <p class="brief">After = optimal for recovery (muscle repair, reduced DOMS). Before = useful as warmup but reduces strength output. Evidence from sports science. The Finnish ritual: workout → sauna → cold plunge.</p>
+        <div class="money">💰 Display ads · Link to sauna-and-cold-plunge protocol article</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 12</span>
+        <span class="badge cluster-hs">Home Sauna</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Best Barrel Sauna — Buying Guide + Top Picks</h4>
+        <span class="keyword-target">best barrel sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~3,000</span><span class="stat-chip">KD: 10</span><span class="stat-chip">TP: 7,000+</span></div>
+        <p class="brief">Cover 3 price tiers: budget ($3–5K), mid ($5–8K), premium ($8K+). Dundalk, SaunaLife, True North brand reviews. Barrel efficiency vs box. Assembly time. Foundation requirements.</p>
+        <div class="money">💰 High-ticket affiliate: $3K–$12K products · Best article on site for commission $</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 13</span>
+        <span class="badge cluster-cp">Cold Plunge</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Cold Plunge Before or After Workout?</h4>
+        <span class="keyword-target">cold plunge before or after workout</span>
+        <div class="stats"><span class="stat-chip">Vol: ~1,800</span><span class="stat-chip">KD: 3</span><span class="stat-chip">TP: 4,500+</span></div>
+        <p class="brief">Science nuance: cold plunge immediately after can blunt muscle hypertrophy (vasoconstriction). Best for recovery days, not heavy lifting days. Pre-workout use for mental readiness.</p>
+        <div class="money">💰 Display ads · Cross-link to how-often-to-cold-plunge</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 14</span>
+        <span class="badge cluster-ben">Benefits</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Does Sauna Increase Testosterone?</h4>
+        <span class="keyword-target">does sauna increase testosterone</span>
+        <div class="stats"><span class="stat-chip">Vol: ~3,500</span><span class="stat-chip">KD: 10</span><span class="stat-chip">TP: 8,000+</span></div>
+        <p class="brief">Honest answer: temporary spike in some studies, no sustained increase. Heat stress + GH release. Combined sauna + cold plunge protocol may help. Don't overpromise; cite PubMed studies.</p>
+        <div class="money">💰 Display ads · Men's health audience = higher CPM</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 15</span>
+        <span class="badge cluster-ir">Infrared</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Infrared Sauna Blanket — Are They Worth It?</h4>
+        <span class="keyword-target">infrared sauna blanket</span>
+        <div class="stats"><span class="stat-chip">Vol: ~3,500</span><span class="stat-chip">KD: 8</span><span class="stat-chip">TP: 8,000+</span></div>
+        <p class="brief">HigherDOSE ($699) vs Sun Home vs budget options ($150). Benefits vs limitations vs full cabin. Who it's for (apartment dwellers, budget buyers). Usage tips. Honest "is it worth it?" verdict.</p>
+        <div class="money">💰 HigherDOSE affiliate program (10% commissions) · High CPC display</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 16</span>
+        <span class="badge cluster-gym">Gym Guide</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Does VASA Fitness Have a Sauna?</h4>
+        <span class="keyword-target">does vasa fitness have a sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~900</span><span class="stat-chip">KD: 1</span><span class="stat-chip">TP: 2,000+</span></div>
+        <p class="brief">Yes — most locations; dry sauna only; not included in Basic plan. Cover VASA's expansion of cold plunge tubs (Colorado Springs). Membership pricing for sauna access.</p>
+        <div class="money">💰 Display ads</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 17</span>
+        <span class="badge cluster-comp">Comparison</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Infrared Sauna vs Traditional Sauna</h4>
+        <span class="keyword-target">infrared sauna vs traditional sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~4,000</span><span class="stat-chip">KD: 10</span><span class="stat-chip">TP: 9,000+</span></div>
+        <p class="brief">Temperature (110–135°F vs 150–195°F), humidity, heat penetration depth, cost, installation, health evidence comparison. Side-by-side table. "Which should I buy?" decision tree.</p>
+        <div class="money">💰 High affiliate value — buyer intent; link to best-infrared-sauna + barrel-sauna</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 18</span>
+        <span class="badge cluster-ben">Benefits</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Sauna Benefits for Skin</h4>
+        <span class="keyword-target">sauna benefits for skin</span>
+        <div class="stats"><span class="stat-chip">Vol: ~3,000</span><span class="stat-chip">KD: 7</span><span class="stat-chip">TP: 7,000+</span></div>
+        <p class="brief">Pore cleansing, collagen production, stratum corneum hydration, acne reduction. Risks (over-drying, rosacea). Post-sauna skincare routine. Frequency recommendations for skin health.</p>
+        <div class="money">💰 Display ads · Link to sauna accessories (oils, skincare post-sauna)</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 19</span>
+        <span class="badge cluster-cp">Cold Plunge</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Ice Bath Temperature — The Complete Guide</h4>
+        <span class="keyword-target">ice bath temperature</span>
+        <div class="stats"><span class="stat-chip">Vol: ~2,400</span><span class="stat-chip">KD: 2</span><span class="stat-chip">TP: 6,000+</span></div>
+        <p class="brief">Optimal 50–59°F (10–15°C). Beginner: start at 60°F. Advanced: 40–50°F. How long at each temperature. Cold plunge chiller vs ice maintenance. Temperature chart by experience level.</p>
+        <div class="money">💰 Display ads · Cross-link cold-plunge-temperature + cold-plunge-chiller</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 20</span>
+        <span class="badge cluster-hs">Home Sauna</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Outdoor Sauna — Ideas, Setup &amp; Buying Guide</h4>
+        <span class="keyword-target">outdoor sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~2,500</span><span class="stat-chip">KD: 9</span><span class="stat-chip">TP: 6,000+</span></div>
+        <p class="brief">Barrel vs cabin vs prefab shed sauna. Placement considerations (level ground, privacy, access to electricity). Foundation types. Heating options. Estimated total cost $6K–$20K installed.</p>
+        <div class="money">💰 High-ticket affiliate — SaunaLife, Dundalk, outdoor sauna kit retailers</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 21</span>
+        <span class="badge cluster-ben">Benefits</span>
+      </div>
+      <div class="week-card-body">
+        <h4>How Often Should You Use a Sauna?</h4>
+        <span class="keyword-target">how often should you use a sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~3,000</span><span class="stat-chip">KD: 5</span><span class="stat-chip">TP: 7,000+</span></div>
+        <p class="brief">2–4x per week sweet spot per Finnish research. Health benefits at 4–7x per week for cardiovascular. Beginners start 1–2x. Is daily safe? Recovery considerations. Hydration protocol.</p>
+        <div class="money">💰 Display ads · Internal links to sauna-before-after-workout + sauna-etiquette</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 22</span>
+        <span class="badge cluster-ir">Infrared</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Best Infrared Sauna for Home (All Budgets)</h4>
+        <span class="keyword-target">best infrared sauna for home</span>
+        <div class="stats"><span class="stat-chip">Vol: ~5,000</span><span class="stat-chip">KD: 15</span><span class="stat-chip">TP: 12,000+</span></div>
+        <p class="brief">3 budget tiers: under $2K (Dynamic, SereneLife), $2–4K (Sun Home, SunRay), $4K+ (Clearlight, HigherDOSE). EMF ratings, wood quality, size options. Buying checklist at the end.</p>
+        <div class="money">💰 Best affiliate article in infrared cluster — $2K–$8K products</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 23</span>
+        <span class="badge cluster-cp">Cold Plunge</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Wim Hof Method Cold Plunge Guide</h4>
+        <span class="keyword-target">wim hof cold plunge</span>
+        <div class="stats"><span class="stat-chip">Vol: ~2,500</span><span class="stat-chip">KD: 8</span><span class="stat-chip">TP: 5,000+</span></div>
+        <p class="brief">Breathing technique explained (3 rounds). How to combine with cold plunge. Beginner 30-day protocol. Safety warnings. What the science says about the Wim Hof method specifically.</p>
+        <div class="money">💰 Display ads · Link to DIY cold plunge + best cold plunge tubs</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 24</span>
+        <span class="badge cluster-hs">Home Sauna</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Best Sauna Accessories You Actually Need</h4>
+        <span class="keyword-target">sauna accessories</span>
+        <div class="stats"><span class="stat-chip">Vol: ~2,000</span><span class="stat-chip">KD: 5</span><span class="stat-chip">TP: 5,000+</span></div>
+        <p class="brief">The essentials: bucket + ladle ($30–$80), sauna hat ($20–$40), thermometer/hygrometer, back brush, towels, headrest. Nice-to-have: essential oils (eucalyptus, birch), sauna stones. Amazon links.</p>
+        <div class="money">💰 Amazon Associates — lots of $20–$80 items with 3–5% commission</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 25</span>
+        <span class="badge cluster-gym">Gym Guide</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Does Orange Theory Have a Sauna?</h4>
+        <span class="keyword-target">does orangetheory have a sauna</span>
+        <div class="stats"><span class="stat-chip">Vol: ~800</span><span class="stat-chip">KD: 1</span><span class="stat-chip">TP: 1,500+</span></div>
+        <p class="brief">Answer: No — pure HIIT studio format, no wellness amenities. Cover what OTF does offer. Suggest alternatives for members who want both HIIT and sauna access (Life Time, Equinox). Internal links.</p>
+        <div class="money">💰 Display ads</div>
+      </div>
+    </div>
+
+    <div class="week-card">
+      <div class="week-card-header">
+        <span class="week-num">Week 26</span>
+        <span class="badge cluster-ben">Benefits</span>
+      </div>
+      <div class="week-card-body">
+        <h4>Sauna Etiquette — 10 Rules Every Beginner Should Know</h4>
+        <span class="keyword-target">sauna etiquette</span>
+        <div class="stats"><span class="stat-chip">Vol: ~1,500</span><span class="stat-chip">KD: 3</span><span class="stat-chip">TP: 4,000+</span></div>
+        <p class="brief">The 10 rules: shower first, towel on wood, no phones, respect quiet, no strong scents, ask before adding water, leave when full, no shaving, cover up in mixed settings, cool down after. Finnish culture context.</p>
+        <div class="money">💰 Display ads · Good evergreen for returning visitors · links to accessories</div>
+      </div>
+    </div>
+
+  </div><!-- end week-grid -->
+
+  <!-- ======================================= -->
+  <h2 id="monetization">Monetization Notes by Cluster</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Cluster</th><th>Primary Revenue Driver</th><th>Affiliate Programs to Join</th><th>Expected CPC Range</th><th>Revenue Timeline</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="badge cluster-gym">Gym Guide</span></td>
+          <td>Display ads (volume play)</td>
+          <td>N/A — informational content</td>
+          <td>$0.60–$1.20</td>
+          <td>Fastest to traffic (weeks); low per-visitor revenue</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-cp">Cold Plunge</span></td>
+          <td>Affiliate (products $89–$5,000)</td>
+          <td>Amazon Associates, Cold Pod direct, Plunge.com, Ice Barrel</td>
+          <td>$1.20–$2.00</td>
+          <td>Revenue starts in months 2–3</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-hs">Home Sauna</span></td>
+          <td>High-ticket affiliate ($3K–$15K products)</td>
+          <td>SaunaLife (8%), Dundalk LeisureCraft, Dynamic Saunas, Almost Heaven</td>
+          <td>$1.50–$3.00</td>
+          <td>1 sale/month = $100–$500 commission</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-ir">Infrared Sauna</span></td>
+          <td>High-ticket affiliate ($2K–$8K products)</td>
+          <td>Sun Home Saunas (8%), HigherDOSE (10%), Clearlight, Sunlighten</td>
+          <td>$2.00–$4.00</td>
+          <td>Highest CPC and commission per click on site</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-ben">Benefits</span></td>
+          <td>Display ads (volume) + soft affiliate CTAs</td>
+          <td>Amazon (accessories) — low basket size</td>
+          <td>$0.80–$1.50</td>
+          <td>Scales linearly with traffic</td>
+        </tr>
+        <tr>
+          <td><span class="badge cluster-comp">Comparisons</span></td>
+          <td>Both ads and affiliate (decision intent)</td>
+          <td>All of the above, contextually</td>
+          <td>$1.50–$2.50</td>
+          <td>High value per visitor; worth extra effort on quality</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Mediavine Upgrade Path</h3>
+  <p>Google AdSense pays ~$3–8 RPM. <strong>Mediavine</strong> pays ~$20–35 RPM but requires 50,000 monthly sessions. Once you hit that milestone (realistically months 8–14 with consistent content), switching to Mediavine will <strong>3–5x your ad revenue overnight</strong> without changing a single line of content. Track sessions in Google Analytics from day one so you know when you cross the threshold.</p>
+
+  <h3>Quick Wins This Month</h3>
+  <p>While working through the content calendar, do these one-time setup tasks that compound over time:</p>
+  <ul style="padding-left: 20px; margin: 12px 0;">
+    <li style="margin-bottom: 8px;">Submit <code>sitemap.xml</code> to Google Search Console (instructions in DEPLOY-INSTRUCTIONS.html)</li>
+    <li style="margin-bottom: 8px;">Apply to Google AdSense (requires a few published articles and a privacy policy — add one to the About page)</li>
+    <li style="margin-bottom: 8px;">Apply to Amazon Associates — takes 1 week; you have 180 days to make 3 qualifying sales</li>
+    <li style="margin-bottom: 8px;">Set up a free Google Analytics 4 property and add the tracking snippet to <code>site.js</code></li>
+    <li style="margin-bottom: 8px;">Submit the site URL to Bing Webmaster Tools (free; often forgotten; adds 10–15% more traffic)</li>
+    <li style="margin-bottom: 8px;">Contact SaunaLife and Dundalk directly for affiliate approval — they approve quickly for new sites</li>
+  </ul>
+
+</div><!-- end container -->
+
+<footer>
+  <p>the-sauna-plunge.com — Research compiled March 2026<br>
+  Ahrefs session 1 data + web research | 26-week calendar | 60+ keyword targets identified</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Passive Income Niche Report — Kacy</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: Georgia, 'Times New Roman', serif; background: #f5f4f0; color: #222; line-height: 1.7; }
+  .cover { background: linear-gradient(135deg, #1a3a4a 0%, #0d2233 60%, #1a4a3a 100%); color: white; padding: 80px 60px 60px; }
+  .cover .label { font-family: Arial, sans-serif; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; color: #7ecfb0; margin-bottom: 20px; }
+  .cover h1 { font-size: 42px; font-weight: normal; line-height: 1.2; margin-bottom: 16px; }
+  .cover h1 strong { color: #7ecfb0; }
+  .cover .subtitle { font-size: 18px; color: #aac8d8; margin-bottom: 40px; }
+  .cover .meta { font-family: Arial, sans-serif; font-size: 13px; color: #7a9aaa; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 20px; }
+  .container { max-width: 860px; margin: 0 auto; padding: 50px 40px; }
+  .verdict-box { background: #0d2233; color: white; border-radius: 12px; padding: 40px; margin: 40px 0; }
+  .verdict-box .verdict-label { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #7ecfb0; margin-bottom: 12px; }
+  .verdict-box h2 { font-size: 30px; font-weight: normal; margin-bottom: 8px; }
+  .verdict-box h2 strong { color: #7ecfb0; }
+  .verdict-box p { color: #aac8d8; font-size: 15px; }
+  h2.section { font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #7ecfb0; border-bottom: 2px solid #7ecfb0; padding-bottom: 8px; margin: 50px 0 24px; }
+  h3 { font-size: 21px; font-weight: normal; margin: 28px 0 10px; color: #1a3a4a; }
+  p { margin-bottom: 14px; font-size: 16px; }
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+  .stat-card { background: white; border: 1px solid #ddd; border-radius: 10px; padding: 22px 18px; text-align: center; }
+  .stat-card .num { font-family: Arial, sans-serif; font-size: 30px; font-weight: bold; color: #1a3a4a; }
+  .stat-card .unit { font-size: 13px; color: #888; margin-top: 2px; }
+  .stat-card .label { font-family: Arial, sans-serif; font-size: 12px; color: #555; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; font-family: Arial, sans-serif; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  th { background: #1a3a4a; color: white; padding: 12px 14px; text-align: left; font-weight: normal; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+  td { padding: 11px 14px; border-bottom: 1px solid #eee; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f9f9f9; }
+  .kd-0 { color: #1a7a4a; font-weight: bold; }
+  .kd-low { color: #4a7a1a; font-weight: bold; }
+  .kd-med { color: #aa6a00; }
+  .tp-high { color: #1a3a4a; font-weight: bold; }
+  .pillar { background: white; border-left: 5px solid #7ecfb0; border-radius: 6px; padding: 20px 24px; margin: 16px 0; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .pillar h4 { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #1a3a4a; margin-bottom: 8px; }
+  .pillar p { margin: 0; font-size: 14px; color: #444; }
+  .pillar .why { font-size: 13px; color: #7ecfb0; margin-top: 6px; font-family: Arial, sans-serif; }
+  .warning-box { background: #fff8e8; border: 1px solid #f0c060; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+  .warning-box h4 { font-family: Arial, sans-serif; color: #9a6000; margin-bottom: 8px; }
+  .note-box { background: #eaf6f0; border: 1px solid #aad8c0; border-radius: 8px; padding: 20px 24px; margin: 24px 0; }
+  .note-box h4 { font-family: Arial, sans-serif; color: #1a6a4a; margin-bottom: 8px; }
+  .roadmap-item { display: flex; gap: 20px; margin: 20px 0; }
+  .roadmap-phase { flex-shrink: 0; background: #1a3a4a; color: white; border-radius: 8px; padding: 10px 14px; font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; text-align: center; min-width: 100px; height: fit-content; }
+  .roadmap-content h4 { font-family: Arial, sans-serif; font-size: 15px; color: #1a3a4a; margin-bottom: 6px; }
+  .roadmap-content p { font-size: 14px; color: #555; margin: 0; }
+  .action-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #eee; }
+  .action-num { background: #7ecfb0; color: #1a3a4a; border-radius: 50%; width: 28px; height: 28px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: Arial, sans-serif; font-weight: bold; font-size: 13px; }
+  .action-item h4 { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; margin-bottom: 4px; }
+  .action-item p { font-size: 13px; color: #555; margin: 0; }
+  .domain-rec { background: #1a3a4a; color: white; border-radius: 10px; padding: 24px 28px; margin: 20px 0; font-family: Arial, sans-serif; }
+  .domain-rec .domain-name { font-size: 26px; color: #7ecfb0; font-weight: bold; margin-bottom: 6px; letter-spacing: 1px; }
+  .domain-rec p { color: #aac8d8; font-size: 14px; margin: 0; }
+  .competitor-tag { display: inline-block; background: #eee; border-radius: 4px; padding: 2px 8px; font-size: 12px; font-family: Arial, sans-serif; margin: 2px; }
+  .dr-tag { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-family: Arial, sans-serif; font-weight: bold; }
+  .dr-low { background: #eaf6f0; color: #1a6a4a; }
+  .dr-med { background: #fff0d0; color: #9a5000; }
+  .dr-high { background: #ffe0e0; color: #9a1a1a; }
+  footer { text-align: center; padding: 40px; font-family: Arial, sans-serif; font-size: 12px; color: #999; }
+  @media (max-width: 600px) { .stat-grid { grid-template-columns: 1fr 1fr; } .cover { padding: 40px 24px; } .container { padding: 30px 20px; } }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="label">Ahrefs Niche Research · March 2026</div>
+  <h1>Your Next Passive<br>Income Site:<br><strong>Sauna & Cold Plunge</strong></h1>
+  <div class="subtitle">A data-driven plan to build a $300–$1,200/month ad revenue site<br>within 12–18 months — with minimal ongoing effort from you.</div>
+  <div class="meta">Prepared for Kacy &nbsp;·&nbsp; Budget: $20/yr &nbsp;·&nbsp; Monetization: Ad Revenue + Affiliate &nbsp;·&nbsp; Timeline: 12–18 months</div>
+</div>
+
+<div class="container">
+
+  <!-- VERDICT -->
+  <div class="verdict-box">
+    <div class="verdict-label">The Verdict</div>
+    <h2>Build <strong>a Sauna &amp; Cold Plunge authority site.</strong></h2>
+    <p>After scanning 6 niche candidates across Ahrefs — disc golf, cold plunge, foraging, overlanding, kayak fishing, and axe throwing — the sauna and cold plunge space stands out by a wide margin. It combines sky-high CPCs, low-competition keywords, a growing trend with no dominant gatekeeper (no AllTrails equivalent), and proven small-DR sites already getting massive traffic.</p>
+  </div>
+
+  <!-- WHY THIS NICHE -->
+  <h2 class="section">Why This Niche Wins</h2>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="num">$1.90</div>
+      <div class="unit">avg CPC</div>
+      <div class="label">Cold Plunge Tub</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">DR 29</div>
+      <div class="unit">ranking #2</div>
+      <div class="label">desertplunge.com</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">$705K</div>
+      <div class="unit">traffic value/mo</div>
+      <div class="label">desertplunge.com (DR 29)</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">KD 0</div>
+      <div class="unit">difficulty</div>
+      <div class="label">"Does Planet Fitness have a sauna" (12K/mo)</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">64K</div>
+      <div class="unit">searches/mo</div>
+      <div class="label">"Cold plunge" — KD 8</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">72K</div>
+      <div class="unit">traffic potential</div>
+      <div class="label">"Gym with sauna near me" — KD 24</div>
+    </div>
+  </div>
+
+  <p>The cold plunge and home sauna market is booming — driven by Huberman Lab, biohacking culture, and mainstream health awareness. Products in this space cost $500–$10,000+, which means advertisers are paying top dollar to reach this audience. That directly translates to higher RPMs for display ads on your site.</p>
+
+  <p>Unlike your hiking-near-me.com experience, there is no AllTrails for saunas. The top competitors are either gym chains (answering a different intent), product brands, or tiny content sites with DR under 30. <strong>A brand new site can rank here within 6–12 months</strong> — the data shows kyfe.com, a site with essentially no tracked history, ranking on page one for "gym with sauna near me."</p>
+
+  <p>Unlike directory-dynamics.com, this site won't be replaced by AI summaries because a large portion of the value is in product reviews and buying decisions — content types where people still click through.</p>
+
+  <!-- COMPETITOR REALITY CHECK -->
+  <h2 class="section">Competitor Reality Check</h2>
+
+  <p>Here's who's actually ranking in the top 10 for the best keywords. The pattern is clear: weak, beatable sites dominate.</p>
+
+  <table>
+    <tr>
+      <th>Keyword</th>
+      <th>Volume</th>
+      <th>KD</th>
+      <th>Who's #1–3</th>
+      <th>Their DR</th>
+    </tr>
+    <tr>
+      <td>cold plunge tub</td>
+      <td>33,000</td>
+      <td class="kd-low">8</td>
+      <td>desertplunge.com, plunge.com</td>
+      <td><span class="dr-low dr-tag">DR 29</span> <span class="dr-med dr-tag">DR 63</span></td>
+    </tr>
+    <tr>
+      <td>cold plunge</td>
+      <td>64,000</td>
+      <td class="kd-low">8</td>
+      <td>Product brands, Reddit, Wired</td>
+      <td>Mixed — gap for guides</td>
+    </tr>
+    <tr>
+      <td>gym with sauna near me</td>
+      <td>6,200</td>
+      <td class="kd-low">24</td>
+      <td>kyfe.com blog post, 24hr Fitness</td>
+      <td><span class="dr-low dr-tag">~DR 0–5</span></td>
+    </tr>
+    <tr>
+      <td>does planet fitness have a sauna</td>
+      <td>12,000</td>
+      <td class="kd-0">0</td>
+      <td>Tiny/unknown sites</td>
+      <td><span class="dr-low dr-tag">DR 0–10</span></td>
+    </tr>
+    <tr>
+      <td>does anytime fitness have a sauna</td>
+      <td>1,000</td>
+      <td class="kd-0">1</td>
+      <td>Unknown sites</td>
+      <td>TP of <strong>18,000</strong>/mo</td>
+    </tr>
+    <tr>
+      <td>does the YMCA have a sauna</td>
+      <td>200</td>
+      <td class="kd-0">0</td>
+      <td>Unknown sites</td>
+      <td>TP of <strong>24,000</strong>/mo</td>
+    </tr>
+    <tr>
+      <td>infrared sauna benefits</td>
+      <td>14,000</td>
+      <td class="kd-med">26</td>
+      <td>Health blogs</td>
+      <td>TP of <strong>23,000</strong>/mo</td>
+    </tr>
+    <tr>
+      <td>home sauna cost</td>
+      <td>700</td>
+      <td class="kd-low">3</td>
+      <td>Mixed</td>
+      <td>TP of <strong>25,000</strong>/mo</td>
+    </tr>
+    <tr>
+      <td>sauna at home</td>
+      <td>1,900</td>
+      <td class="kd-low">6</td>
+      <td>Mixed retail + blogs</td>
+      <td>TP of <strong>18,000</strong>/mo</td>
+    </tr>
+    <tr>
+      <td>diy cold plunge</td>
+      <td>3,200</td>
+      <td class="kd-0">1</td>
+      <td>Reddit, small blogs</td>
+      <td><span class="dr-low dr-tag">Very beatable</span></td>
+    </tr>
+  </table>
+
+  <p><strong>The "does [gym chain] have a sauna" cluster is your fastest traffic:</strong> Individually these keywords look small, but they share traffic. The page ranking #1 for "does anytime fitness have a sauna" gets an estimated <strong>18,000 monthly visits</strong> — from just one article. Multiply across 10–15 gym chains and you're looking at 100,000+ monthly visits from this cluster alone, all with KD 0–3.</p>
+
+  <!-- CONTENT STRATEGY -->
+  <h2 class="section">The 4 Content Pillars</h2>
+
+  <p>Think of the site as four overlapping content areas, each feeding the others in terms of internal links and authority:</p>
+
+  <div class="pillar">
+    <h4>Pillar 1 — "Does [Gym] Have [Feature]?" Articles (Quickest Traffic)</h4>
+    <p>Articles answering whether Planet Fitness, Anytime Fitness, 24 Hour Fitness, YMCA, Equinox, LA Fitness, Gold's Gym, etc. have saunas, steam rooms, or cold plunges. These are informational, KD 0–3, and rank fast because no authority site has bothered to cover them comprehensively.</p>
+    <p class="why">✓ KD 0–3 &nbsp;·&nbsp; Fast to rank &nbsp;·&nbsp; Traffic potential 2,000–24,000 per article &nbsp;·&nbsp; High CPC ($1.10–$2.00) from gym membership advertisers</p>
+  </div>
+
+  <div class="pillar">
+    <h4>Pillar 2 — Cold Plunge Tub Reviews &amp; Buyer's Guides (Best for Revenue)</h4>
+    <p>Comprehensive reviews and comparisons of cold plunge tubs (Plunge, Desert Plunge, Ice Barrel, etc.), DIY cold plunge builds, and "best cold plunge under $X" guides. These have high commercial intent — people are about to spend $500–$5,000. Affiliate commissions can supplement ad revenue significantly here.</p>
+    <p class="why">✓ KD 1–12 &nbsp;·&nbsp; CPC $1.30–$3.00 &nbsp;·&nbsp; Affiliate opportunity: 3–5% of $500–$5,000 &nbsp;·&nbsp; desertplunge.com (DR 29) already proving the model</p>
+  </div>
+
+  <div class="pillar">
+    <h4>Pillar 3 — Home Sauna Guides (Highest Long-Term Traffic)</h4>
+    <p>Coverage of home sauna options (barrel, infrared, indoor, outdoor), cost breakdowns, installation guides, and brand comparisons (Costco sauna is 7,200 searches/month, KD 1). This is the highest-value pillar for display ads because sauna product advertisers pay top CPCs.</p>
+    <p class="why">✓ KD 1–21 &nbsp;·&nbsp; CPC $0.40–$1.40 &nbsp;·&nbsp; Traffic potential 18,000–46,000 per top article &nbsp;·&nbsp; Costco sauna alone: 7,200 vol, KD 1</p>
+  </div>
+
+  <div class="pillar">
+    <h4>Pillar 4 — Benefits, Protocols &amp; Science (Authority &amp; Long-Tail)</h4>
+    <p>Content about benefits of cold plunging, sauna protocols, how long to cold plunge, sauna + cold plunge contrast therapy, and safety guides. These drive brand authority and long-tail traffic, and link naturally to both the gym content and the product content above.</p>
+    <p class="why">✓ KD 0–22 &nbsp;·&nbsp; Very shareable &nbsp;·&nbsp; Strong internal linking hub &nbsp;·&nbsp; "Benefits of cold plunge" TP = 39,000/mo</p>
+  </div>
+
+  <!-- BEST KEYWORDS TO TARGET FIRST -->
+  <h2 class="section">Priority Keywords — Start Here</h2>
+
+  <p>These are the highest-opportunity targets for the first 20 articles. Sorted by the combination of low difficulty and high traffic potential:</p>
+
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Keyword</th>
+      <th>Volume</th>
+      <th>KD</th>
+      <th>CPC</th>
+      <th>Traffic Potential</th>
+    </tr>
+    <tr><td>1</td><td>does planet fitness have a sauna</td><td>12,000</td><td class="kd-0">0</td><td>$2.00</td><td class="tp-high">2,200</td></tr>
+    <tr><td>2</td><td>does the YMCA have a sauna</td><td>200</td><td class="kd-0">0</td><td>$0.45</td><td class="tp-high">24,000</td></tr>
+    <tr><td>3</td><td>does anytime fitness have a sauna</td><td>1,000</td><td class="kd-0">1</td><td>$1.10</td><td class="tp-high">18,000</td></tr>
+    <tr><td>4</td><td>diy cold plunge</td><td>3,200</td><td class="kd-0">1</td><td>$0.50</td><td>1,600</td></tr>
+    <tr><td>5</td><td>cold plunge temperature</td><td>2,600</td><td class="kd-0">0</td><td>$0.20</td><td>800</td></tr>
+    <tr><td>6</td><td>cold plunge chiller</td><td>2,900</td><td class="kd-0">0</td><td>$1.30</td><td>1,500</td></tr>
+    <tr><td>7</td><td>costco sauna</td><td>7,200</td><td class="kd-0">1</td><td>$0.45</td><td class="tp-high">46,000</td></tr>
+    <tr><td>8</td><td>home sauna cost</td><td>700</td><td class="kd-low">3</td><td>$0.35</td><td class="tp-high">25,000</td></tr>
+    <tr><td>9</td><td>how often should you cold plunge</td><td>600</td><td class="kd-0">0</td><td>$0.25</td><td class="tp-high">35,000</td></tr>
+    <tr><td>10</td><td>sauna at home</td><td>1,900</td><td class="kd-low">6</td><td>$0.60</td><td class="tp-high">18,000</td></tr>
+    <tr><td>11</td><td>cold plunge tub</td><td>33,000</td><td class="kd-low">8</td><td>$1.90</td><td class="tp-high">4,700</td></tr>
+    <tr><td>12</td><td>sauna and cold plunge</td><td>1,800</td><td class="kd-low">7</td><td>$1.80</td><td class="tp-high">10,000</td></tr>
+    <tr><td>13</td><td>best fishing kayak</td><td>1,800</td><td class="kd-low">6</td><td>$0.30</td><td class="tp-high">18,000</td></tr>
+    <tr><td>14</td><td>infrared sauna benefits</td><td>14,000</td><td class="kd-med">26</td><td>$0.09</td><td class="tp-high">23,000</td></tr>
+    <tr><td>15</td><td>gym with sauna near me</td><td>6,200</td><td class="kd-med">24</td><td>$1.30</td><td class="tp-high">72,000</td></tr>
+  </table>
+
+  <p>Note: "best fishing kayak" (#13) is included because it's a secondary opportunity worth a few articles — the KD is only 6, it has an 18K traffic potential, and CPC is decent at $0.30. A few "best kayak for X" articles could diversify your traffic early on while the sauna niche builds.</p>
+
+  <!-- MONETIZATION -->
+  <h2 class="section">How You Make Money</h2>
+
+  <h3>Display Ads (Primary)</h3>
+  <p>Start with Google AdSense (no traffic minimum). Once you hit ~50,000 monthly sessions, apply to Mediavine — which typically pays 3–5x more than AdSense. In the sauna/cold plunge niche, RPMs (revenue per 1,000 visitors) tend to run $20–$45 because of the high-value products advertised.</p>
+  <p><strong>Income estimate at 50K monthly sessions:</strong> $1,000–$2,250/month with Mediavine. At 20K sessions (AdSense): ~$200–$400/month.</p>
+
+  <h3>Affiliate Revenue (Supplemental, High Upside)</h3>
+  <p>Amazon Associates pays 4–5% on most fitness products. The real upside is direct affiliate programs from cold plunge tub brands (Plunge, Ice Barrel, Blue Cube, etc.) which often pay 5–10%. A single referred sale of a $2,000 cold plunge tub at 5% = $100. You only need 3–5 sales/month to meaningfully supplement ad revenue.</p>
+
+  <div class="note-box">
+    <h4>Realistic 12-Month Income Projection</h4>
+    <p><strong>Months 1–6:</strong> ~$0–$50/month (building content, Google sandbox period)<br>
+    <strong>Months 7–9:</strong> ~$50–$200/month (first rankings, AdSense)<br>
+    <strong>Months 10–12:</strong> ~$200–$600/month (traffic compounds, affiliate sales start)<br>
+    <strong>Month 18+:</strong> $500–$1,500/month (Mediavine-eligible, passive)<br><br>
+    These are conservative estimates based on comparable niche sites. The upside is meaningfully higher if you target product keywords aggressively early.</p>
+  </div>
+
+  <!-- DOMAIN RECOMMENDATION -->
+  <h2 class="section">Domain Recommendation</h2>
+
+  <p>You have $20/year, which covers a .com on Namecheap (~$10–$12/year). Here are the top domain options — prioritize something brandable over keyword-stuffed:</p>
+
+  <div class="domain-rec">
+    <div class="domain-name">thecoldplungeguide.com</div>
+    <p>Consistent with your the-pickleball-guide.com naming convention. Familiar brand to you. Cold plunge is the higher-CPC anchor of the niche.</p>
+  </div>
+  <div class="domain-rec">
+    <div class="domain-name">saunaandplunge.com</div>
+    <p>Captures both pillars (sauna + cold plunge) in the name. Broader positioning, easier to expand content into sauna territory without feeling off-brand.</p>
+  </div>
+  <div class="domain-rec">
+    <div class="domain-name">plungeinsider.com</div>
+    <p>Brandable, modern, memorable. "Insider" implies authority and expertise. Easy to say and share.</p>
+  </div>
+
+  <p>My recommendation: <strong>saunaandplunge.com</strong> — it signals the full scope of the site and avoids boxing you into just cold plunge content as the niche evolves.</p>
+
+  <!-- HOSTING -->
+  <h2 class="section">Hosting &amp; Tech Stack</h2>
+
+  <p>Your $20/year is tight for SquareSpace (which runs $16–$23/month). Here are better options for a content site:</p>
+
+  <table>
+    <tr><th>Option</th><th>Cost</th><th>Pros</th><th>Cons</th></tr>
+    <tr><td><strong>Cloudflare Pages + free CMS</strong></td><td>$0–$10/yr (domain only)</td><td>Free hosting, fast, reliable</td><td>More technical setup</td></tr>
+    <tr><td><strong>WordPress on Bluehost/Namecheap</strong></td><td>~$30–$50/yr (with domain)</td><td>Most AdSense/Mediavine-friendly, huge plugin ecosystem</td><td>Slightly over $20 budget</td></tr>
+    <tr><td><strong>Netlify + static site</strong></td><td>$0–$10/yr (domain only)</td><td>Free, fast, simple</td><td>Less CMS-friendly long-term</td></tr>
+  </table>
+
+  <p>For ad revenue, <strong>WordPress on shared hosting is the gold standard</strong>. Namecheap's shared hosting runs about $20–$25/year and includes a free domain. That's only slightly over your budget but will pay for itself with the first month of ad revenue.</p>
+
+  <div class="warning-box">
+    <h4>SquareSpace Warning</h4>
+    <p>SquareSpace is not ideal for SEO-heavy content sites. It limits control over technical SEO, loads slowly at scale, and is expensive relative to WordPress. Most successful niche ad-revenue sites run on WordPress. Consider it a one-time $30 investment to get set up properly.</p>
+  </div>
+
+  <!-- ROADMAP -->
+  <h2 class="section">12-Month Roadmap</h2>
+
+  <div class="roadmap-item">
+    <div class="roadmap-phase">Month 1<br>Foundation</div>
+    <div class="roadmap-content">
+      <h4>Register domain, set up WordPress, install SEO plugin (Rank Math or Yoast)</h4>
+      <p>Pick your domain. Set up WordPress on Namecheap hosting. Configure Google Search Console and Analytics. Install Rank Math (free). Set up basic site structure: Home, Blog, About, Categories (Cold Plunge, Home Sauna, Gym Guide).</p>
+    </div>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-phase">Months 1–3<br>Content Sprint</div>
+    <div class="roadmap-content">
+      <h4>Publish 20–25 articles targeting KD 0–10 keywords</h4>
+      <p>Start with the "does [gym] have sauna/cold plunge" cluster — these rank fastest because there's zero competition. Target one gym chain per article: Planet Fitness, Anytime Fitness, YMCA, LA Fitness, 24 Hour Fitness, Equinox, Gold's Gym, Crunch, Life Time, etc. Then move to "cold plunge temperature," "how long to cold plunge," "DIY cold plunge," and "costco sauna." Each article should be 1,200–2,000 words.</p>
+    </div>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-phase">Months 3–6<br>Compound</div>
+    <div class="roadmap-content">
+      <h4>Add product content + start seeing first organic traffic</h4>
+      <p>Publish cold plunge tub reviews, "best cold plunge under $500/1000/2000" guides, and home sauna cost breakdowns. By month 6, your early articles should start ranking on page 2–3 and moving up. Apply to Amazon Associates. Google's "sandbox" typically lifts after 3–6 months for new domains.</p>
+    </div>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-phase">Months 6–9<br>Monetize</div>
+    <div class="roadmap-content">
+      <h4>Enable AdSense, watch traffic climb, target 20K sessions</h4>
+      <p>Apply to Google AdSense once you have 10–15 published articles. Add affiliate links throughout product content. Update your gym articles seasonally (gym chains change their amenities). Start seeing $50–$200/month.</p>
+    </div>
+  </div>
+
+  <div class="roadmap-item">
+    <div class="roadmap-phase">Months 9–12<br>Scale</div>
+    <div class="roadmap-content">
+      <h4>Push toward 50K sessions for Mediavine eligibility</h4>
+      <p>Continue publishing 4–6 articles/month. Add a "sauna near me" guide. Target slightly harder keywords (KD 20–30) now that your domain has authority. At 50K monthly sessions, apply to Mediavine — this typically 3–4x your ad revenue overnight. Aim for $300–$600/month by end of year 1.</p>
+    </div>
+  </div>
+
+  <!-- YOUR ACTION STEPS -->
+  <h2 class="section">Your Action Steps (In Order)</h2>
+
+  <div class="action-item">
+    <div class="action-num">1</div>
+    <div>
+      <h4>Register your domain this week</h4>
+      <p>Check saunaandplunge.com on Namecheap or GoDaddy. ~$10–$12 for the .com. If taken, fall back to thecoldplungeguide.com or plungeinsider.com.</p>
+    </div>
+  </div>
+  <div class="action-item">
+    <div class="action-num">2</div>
+    <div>
+      <h4>Set up hosting + WordPress</h4>
+      <p>Namecheap shared hosting (~$20–25/yr) includes a free domain. Install WordPress with one click. Install Rank Math (free SEO plugin) and the Astra or Kadence theme (both free, fast, ad-friendly).</p>
+    </div>
+  </div>
+  <div class="action-item">
+    <div class="action-num">3</div>
+    <div>
+      <h4>Connect Google Search Console + Analytics</h4>
+      <p>Both are free. Search Console tells you what's ranking and which queries need attention. Analytics tracks your traffic growth. Set these up before publishing your first article.</p>
+    </div>
+  </div>
+  <div class="action-item">
+    <div class="action-num">4</div>
+    <div>
+      <h4>Write your first 5 articles from the "does [gym] have sauna" cluster</h4>
+      <p>Start with Planet Fitness (12K searches/month, KD 0), then Anytime Fitness (1K searches but 18K traffic potential), YMCA, 24 Hour Fitness, and LA Fitness. These are your fastest wins. Each article: ~1,500 words, answer the question directly in the first paragraph, include current pricing, membership details, and related amenities.</p>
+    </div>
+  </div>
+  <div class="action-item">
+    <div class="action-num">5</div>
+    <div>
+      <h4>Apply to Amazon Associates after 10 published posts</h4>
+      <p>Amazon requires a few sales within 180 days of approval. Add affiliate links to cold plunge tub and sauna product mentions. Don't over-optimize — one or two natural links per article is fine.</p>
+    </div>
+  </div>
+  <div class="action-item">
+    <div class="action-num">6</div>
+    <div>
+      <h4>Apply to AdSense after 15+ posts</h4>
+      <p>You don't need a traffic minimum for AdSense, just quality content. Enable auto-ads so it handles placement for you. Revisit ad placement manually after you see initial revenue data.</p>
+    </div>
+  </div>
+  <div class="action-item">
+    <div class="action-num">7</div>
+    <div>
+      <h4>Keep publishing 4–6 articles/month, update old ones</h4>
+      <p>This is the only ongoing work required. Each article takes 1–2 hours if you're writing yourself. Gym amenity articles need a light update every 6–12 months as gym chains change their features. Set a quarterly calendar reminder for this.</p>
+    </div>
+  </div>
+
+  <!-- RISKS -->
+  <h2 class="section">Risks &amp; How to Mitigate Them</h2>
+
+  <h3>AI Overviews in Search Results</h3>
+  <p>Some of these keywords (especially "benefits of cold plunge") already show AI Overviews in Google's results, which reduce click-through rates. <strong>Mitigation:</strong> Focus first on product-intent and "does X gym have Y" queries — these are less susceptible because the answer requires local/current knowledge that AI overviews don't serve perfectly. Product reviews and buying guides are also largely AI-Overview-resistant because readers want to click through for more context.</p>
+
+  <h3>Google Algorithm Updates</h3>
+  <p>The biggest risk for any content site. <strong>Mitigation:</strong> Write genuinely useful, experience-based content. Don't keyword stuff. Build the gym articles with real accuracy (call or check the gym's website). Google's Helpful Content updates favor sites with real expertise and experience.</p>
+
+  <h3>Niche Goes Cold (Pun Intended)</h3>
+  <p>Cold plunge could fade as a trend. <strong>Mitigation:</strong> The "sauna" side of the niche has been steady for decades. By covering both, you're anchored to a durable topic regardless of the cold plunge trend cycle.</p>
+
+  <!-- COMPARISON TO OTHER NICHES -->
+  <h2 class="section">Why Not the Other Niches?</h2>
+
+  <table>
+    <tr><th>Niche</th><th>Verdict</th><th>Reason</th></tr>
+    <tr><td>Disc Golf</td><td>Decent, not great</td><td>Low CPC ($0.25–$0.35), dominated by DiscGolfScene.com and established sites. Fine secondary niche but not a primary play.</td></tr>
+    <tr><td>Foraging</td><td>Pass</td><td>Low CPC, fragmented interest, too much "definitional" search intent that AI easily satisfies. Hard to monetize well.</td></tr>
+    <tr><td>Overlanding</td><td>Pass</td><td>Low CPC ($0.15), small keyword universe, and dominated by enthusiast communities with strong site loyalty.</td></tr>
+    <tr><td>Kayak Fishing</td><td>Runner-up</td><td>Decent volume, low KD, CPC is weak ($0.20). Best as a few supplemental articles, not a standalone site given the low CPC.</td></tr>
+    <tr><td>Axe Throwing</td><td>Pass</td><td>Primarily local search intent ("axe throwing Denver"), which means you're competing with local businesses via Maps. Hard to scale nationally.</td></tr>
+    <tr><td><strong>Sauna + Cold Plunge</strong></td><td><strong>Build this</strong></td><td>High CPC, low KD, proven small-DR competitors, growing trend, no dominant gatekeeper, dual monetization via ads + affiliate.</td></tr>
+  </table>
+
+</div>
+
+<footer>
+  Research powered by Ahrefs · March 2026 · Prepared for Kacy
+</footer>
+
+</body>
+</html>

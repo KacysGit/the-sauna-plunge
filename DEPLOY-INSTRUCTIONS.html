@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Deploy Your Site — SaunaAndPlunge.com</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 760px; margin: 0 auto; padding: 40px 24px; color: #222; line-height: 1.7; }
+  h1 { color: #0f2030; font-size: 28px; margin-bottom: 8px; }
+  h2 { color: #0f2030; font-size: 20px; margin-top: 40px; border-bottom: 2px solid #3dbf94; padding-bottom: 8px; }
+  h3 { color: #1a3a4a; margin-top: 24px; }
+  p { margin-bottom: 14px; }
+  ol, ul { margin: 12px 0 18px 24px; }
+  li { margin-bottom: 8px; }
+  .step { background: #e6f7f2; border-left: 5px solid #3dbf94; padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+  .step .num { font-size: 20px; font-weight: bold; color: #3dbf94; }
+  code { background: #f0f0f0; padding: 2px 7px; border-radius: 4px; font-size: 14px; }
+  .warning { background: #fff8e8; border: 1px solid #f0c060; border-radius: 8px; padding: 16px 20px; margin: 20px 0; }
+  .note { background: #e8f4fd; border: 1px solid #b0d4f0; border-radius: 8px; padding: 16px 20px; margin: 20px 0; }
+  a { color: #0d6efd; }
+</style>
+</head>
+<body>
+
+<h1>How to Get Your Site Live</h1>
+<p>This folder contains your complete, ready-to-deploy website for <strong>the-sauna-plunge.com</strong> (or whatever domain you choose). Here's exactly what to do to get it live. <strong>Total time: about 45 minutes.</strong></p>
+
+<h2>What You Need to Do (Overview)</h2>
+<ol>
+  <li>Register a domain name (~$10–$12, one-time)</li>
+  <li>Create a free Netlify account (free hosting — no monthly cost)</li>
+  <li>Upload this folder to Netlify (drag and drop)</li>
+  <li>Connect your domain to Netlify (free)</li>
+  <li>Set up Google Search Console (free)</li>
+  <li>Apply for Google AdSense (free, when ready)</li>
+</ol>
+
+<h2>Step 1: Register Your Domain</h2>
+<div class="step"><div class="num">1</div>
+<p>Go to <a href="https://www.namecheap.com" target="_blank">namecheap.com</a>. Search for <strong>the-sauna-plunge.com</strong>. If available, register it for ~$10–$12/year. If taken, try <strong>thecoldplungeguide.com</strong> or <strong>plungeinsider.com</strong>.</p>
+<p>When asked about hosting, you don't need it from Namecheap — you'll use Netlify for free hosting. Just buy the domain.</p>
+<p><strong>Create an account and keep your login credentials safe.</strong></p>
+</div>
+
+<h2>Step 2: Create a Free Netlify Account</h2>
+<div class="step"><div class="num">2</div>
+<p>Go to <a href="https://www.netlify.com" target="_blank">netlify.com</a> and click <strong>Sign up</strong>. Use your email or sign up with GitHub. The free plan is all you need — it includes:</p>
+<ul>
+  <li>Free static site hosting</li>
+  <li>Free SSL certificate (https://)</li>
+  <li>Custom domain support</li>
+  <li>100GB bandwidth/month</li>
+</ul>
+</div>
+
+<h2>Step 3: Deploy the Site</h2>
+<div class="step"><div class="num">3</div>
+<p>In the Netlify dashboard, you'll see a large area that says <strong>"Drag and drop your site folder here"</strong>. Open your file manager or Finder, find the <strong>the-sauna-plunge-site</strong> folder, and drag the entire folder onto that area in Netlify.</p>
+<p>Netlify will upload all the files and give you a temporary URL like <code>https://quirky-fox-abc123.netlify.app</code>. Open that URL and make sure your site looks correct.</p>
+</div>
+
+<h2>Step 4: Connect Your Custom Domain</h2>
+<div class="step"><div class="num">4</div>
+<p>In the Netlify dashboard for your site, go to <strong>Domain settings → Add a custom domain</strong>. Enter <code>the-sauna-plunge.com</code>.</p>
+<p>Netlify will give you nameserver addresses (like <code>dns1.p01.nsone.net</code>). Go back to Namecheap, find your domain, and update the nameservers to Netlify's. Instructions vary slightly but the Namecheap control panel is straightforward.</p>
+<p>DNS changes take <strong>15 minutes to 48 hours</strong> to propagate. Your site will be live at your custom domain once this completes. Netlify automatically handles the free SSL certificate.</p>
+</div>
+
+<h2>Step 5: Set Up Google Search Console</h2>
+<div class="step"><div class="num">5</div>
+<p>Go to <a href="https://search.google.com/search-console" target="_blank">search.google.com/search-console</a> and add your site as a new property. Verify ownership using the HTML file method (Google gives you a small file to upload — just drop it in your site folder and redeploy to Netlify).</p>
+<p>Once verified, submit a sitemap. Your sitemap should be at: <code>the-sauna-plunge.com/sitemap.xml</code> (create this file — see below).</p>
+</div>
+
+<h2>Step 6: Create a Sitemap</h2>
+<div class="step"><div class="num">6</div>
+<p>Create a file called <code>sitemap.xml</code> in your site root with all your page URLs. Here's the content to use:</p>
+<pre style="background:#f5f5f5;padding:16px;border-radius:6px;font-size:13px;overflow-x:auto;">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/does-planet-fitness-have-sauna/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/does-anytime-fitness-have-sauna/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/does-ymca-have-sauna/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/does-24-hour-fitness-have-sauna/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/does-la-fitness-have-sauna/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/gym-with-sauna-near-me/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/diy-cold-plunge/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/cold-plunge-temperature/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/how-often-to-cold-plunge/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/best-cold-plunge-tubs/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/cold-plunge-chiller/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/sauna-and-cold-plunge/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/home-sauna-cost/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/costco-sauna/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/sauna-at-home/&lt;/loc&gt;&lt;/url&gt;
+  &lt;url&gt;&lt;loc&gt;https://the-sauna-plunge.com/about/&lt;/loc&gt;&lt;/url&gt;
+&lt;/urlset&gt;</pre>
+<p>Save this as <code>sitemap.xml</code> in your site folder, redeploy to Netlify, then submit the URL in Google Search Console.</p>
+</div>
+
+<h2>Step 7: Add Google AdSense (When Ready)</h2>
+<div class="step"><div class="num">7</div>
+<p>Wait until you have at least 10–15 published articles before applying. Go to <a href="https://adsense.google.com" target="_blank">adsense.google.com</a> and apply. Google will review your site (usually 1–2 weeks) and either approve or request changes.</p>
+<p>Once approved, Google gives you a small JavaScript snippet to add to your site. Add it to the <code>&lt;head&gt;</code> section of each page's HTML (or globally via Netlify's asset injection). This enables auto-ads — Google will automatically place ads in relevant locations.</p>
+<p><strong>The ad slots already exist in the HTML</strong> — they're labeled "Advertisement" as placeholders. When AdSense is active, Google's script will fill those spaces with real ads.</p>
+</div>
+
+<h2>Step 8: Add New Articles Over Time</h2>
+<div class="step"><div class="num">8</div>
+<p>To add a new article:</p>
+<ol>
+  <li>Create a new folder in the site directory (e.g., <code>does-equinox-have-sauna</code>)</li>
+  <li>Create an <code>index.html</code> file inside that folder, following the same structure as the existing articles</li>
+  <li>Add the link to the sitemap.xml file</li>
+  <li>Redeploy to Netlify (drag the updated folder again)</li>
+</ol>
+<p>Next articles to prioritize (in order):</p>
+<ol>
+  <li>Does Equinox have a sauna?</li>
+  <li>Does Gold's Gym have a sauna?</li>
+  <li>Does Crunch Fitness have a sauna?</li>
+  <li>Does Life Time Fitness have a sauna?</li>
+  <li>Benefits of cold plunging</li>
+  <li>DIY cold plunge with stock tank</li>
+  <li>Cold plunge benefits for athletes</li>
+  <li>Best infrared sauna cabinets</li>
+</ol>
+</div>
+
+<h2>Affiliate Programs to Sign Up For</h2>
+<ul>
+  <li><strong>Amazon Associates:</strong> <a href="https://affiliate-program.amazon.com">affiliate-program.amazon.com</a> — Add affiliate links to any product mention. 4–5% commission on most fitness/wellness products.</li>
+  <li><strong>Plunge affiliate program:</strong> Check plunge.com for their affiliate page. Cold plunge brands typically pay 5–10% on $2,000–$5,000 products — that's $100–$500 per referral.</li>
+  <li><strong>Sunlighten affiliate program:</strong> Direct affiliate program for premium infrared saunas. High commission potential on $1,500–$4,000+ products.</li>
+</ul>
+
+<div class="warning">
+  <strong>One thing to do before going live:</strong> Replace all instances of "https://the-sauna-plunge.com" in the HTML files with your actual domain name if you chose a different domain. You can do this with a simple find-and-replace in any text editor.
+</div>
+
+<div class="note">
+  <strong>Total ongoing work after launch:</strong> Write 4–6 new articles per month (targeting the keyword list from the research report) and update existing articles seasonally (gym amenities change). Each article takes 1–2 hours to write. That's 4–12 hours of work per month for an asset that can generate $300–$1,500/month passively once it's established.
+</div>
+
+<h2>Summary of Files in Your Site</h2>
+<ul>
+  <li><code>index.html</code> — Home page</li>
+  <li><code>style.css</code> — Shared styles for all pages</li>
+  <li><code>js/site.js</code> — Mobile nav and FAQ accordion</li>
+  <li><code>cold-plunge/</code> — Category page</li>
+  <li><code>home-sauna/</code> — Category page</li>
+  <li><code>gym-guide/</code> — Category page</li>
+  <li><code>about/</code> — About page</li>
+  <li><code>does-planet-fitness-have-sauna/</code> — Article (12K searches/mo, KD 0)</li>
+  <li><code>does-anytime-fitness-have-sauna/</code> — Article (1K searches, 18K traffic potential)</li>
+  <li><code>does-ymca-have-sauna/</code> — Article (KD 0, 24K traffic potential)</li>
+  <li><code>does-24-hour-fitness-have-sauna/</code> — Article</li>
+  <li><code>does-la-fitness-have-sauna/</code> — Article</li>
+  <li><code>gym-with-sauna-near-me/</code> — Article (6.2K searches, 72K traffic potential)</li>
+  <li><code>diy-cold-plunge/</code> — Article (3.2K searches, KD 1)</li>
+  <li><code>cold-plunge-temperature/</code> — Article (2.6K searches, KD 0)</li>
+  <li><code>how-often-to-cold-plunge/</code> — Article (600 searches, 35K traffic potential)</li>
+  <li><code>best-cold-plunge-tubs/</code> — Article (33K searches, KD 8 — affiliate goldmine)</li>
+  <li><code>cold-plunge-chiller/</code> — Article (2.9K searches, KD 0)</li>
+  <li><code>sauna-and-cold-plunge/</code> — Article (1.8K searches, KD 7)</li>
+  <li><code>home-sauna-cost/</code> — Article (700 searches, 25K traffic potential)</li>
+  <li><code>costco-sauna/</code> — Article (7.2K searches, KD 1)</li>
+  <li><code>sauna-at-home/</code> — Article (1.9K searches, KD 6)</li>
+</ul>
+
+<p style="margin-top:40px;color:#555;font-size:14px;border-top:1px solid #ddd;padding-top:20px;">Good luck, Kacy. The research is done, the site is built, the content is live. Your only job now is to (1) register the domain, (2) deploy it, and (3) keep publishing articles. The hard part is done.</p>
+
+</body>
+</html>
