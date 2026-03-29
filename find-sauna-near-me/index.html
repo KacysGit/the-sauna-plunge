@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find a Sauna or Cold Plunge Near Me | The Sauna Plunge</title>
+<meta name="description" content="Enter your zip code to find saunas, cold plunges, spas, and wellness centers near you. Interactive map with directions.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="canonical" href="https://the-sauna-plunge.com/find-sauna-near-me/">
+<link rel="stylesheet" href="/style.css">
+
+<!-- Leaflet map CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+
+<style>
+  /* ── Finder page styles ── */
+  .finder-hero {
+    background: linear-gradient(135deg, #1a3a4a 0%, #2d6a8a 100%);
+    color: white;
+    padding: 48px 24px 40px;
+    text-align: center;
+  }
+  .finder-hero h1 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+  .finder-hero p  { font-size: 1.05rem; opacity: 0.85; max-width: 520px; margin: 0 auto 28px; }
+
+  .search-box {
+    display: flex;
+    gap: 10px;
+    max-width: 440px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .search-box input {
+    flex: 1;
+    min-width: 160px;
+    padding: 14px 18px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+  }
+  .search-box select {
+    padding: 14px 12px;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .search-box button {
+    padding: 14px 26px;
+    background: #ff7043;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+  }
+  .search-box button:hover { background: #e64a19; }
+  .search-box button:disabled { background: #aaa; cursor: not-allowed; }
+
+  /* ── Results layout ── */
+  .finder-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 0;
+    height: 560px;
+    max-width: 1100px;
+    margin: 32px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  }
+  @media (max-width: 720px) {
+    .finder-layout { grid-template-columns: 1fr; height: auto; margin: 16px; }
+  }
+
+  /* ── Results list ── */
+  .results-panel {
+    background: white;
+    overflow-y: auto;
+    border-right: 1px solid #e8e8e0;
+  }
+  .results-header {
+    padding: 16px 20px;
+    background: #f8f8f4;
+    border-bottom: 1px solid #e8e8e0;
+    font-size: 0.85rem;
+    color: #666;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .results-header strong { color: #1a3a4a; font-size: 1rem; }
+
+  .result-item {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f0f0e8;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .result-item:hover, .result-item.active { background: #f0f7ff; }
+  .result-item h3 { font-size: 0.95rem; font-weight: 700; color: #1a3a4a; margin-bottom: 3px; }
+  .result-item .result-type {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .type-sauna    { background: #fff3e0; color: #e65100; }
+  .type-spa      { background: #f3e5f5; color: #6a1b9a; }
+  .type-gym      { background: #e8f5e9; color: #1b5e20; }
+  .type-wellness { background: #e3f2fd; color: #0d47a1; }
+
+  .result-item .result-addr { font-size: 0.83rem; color: #666; margin-bottom: 6px; }
+  .result-item .result-dist { font-size: 0.8rem; color: #2d6a8a; font-weight: 600; }
+  .result-item .result-links { margin-top: 6px; display: flex; gap: 10px; }
+  .result-item .result-links a {
+    font-size: 0.78rem;
+    color: #2d6a8a;
+    text-decoration: none;
+    border: 1px solid #bfdbfe;
+    padding: 2px 8px;
+    border-radius: 12px;
+  }
+  .result-item .result-links a:hover { background: #dbeafe; }
+
+  /* ── Map ── */
+  #map {
+    width: 100%;
+    height: 560px;
+  }
+  @media (max-width: 720px) {
+    #map { height: 320px; }
+    .finder-layout { border-radius: 8px; }
+  }
+
+  /* ── States ── */
+  .finder-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 40px 24px;
+    text-align: center;
+    color: #888;
+  }
+  .finder-state .state-icon { font-size: 3rem; margin-bottom: 12px; }
+  .finder-state p { font-size: 0.9rem; max-width: 240px; }
+
+  .spinner {
+    width: 36px; height: 36px;
+    border: 3px solid #e0e0d8;
+    border-top-color: #2d6a8a;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .error-box {
+    background: #fff3f3;
+    border: 1px solid #ffcdd2;
+    border-radius: 8px;
+    padding: 12px 20px;
+    margin: 12px 20px;
+    font-size: 0.88rem;
+    color: #c62828;
+  }
+
+  /* ── Tips section ── */
+  .finder-tips {
+    max-width: 1100px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .tip-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  }
+  .tip-card .tip-icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .tip-card h3 { font-size: 0.95rem; color: #1a3a4a; margin-bottom: 6px; }
+  .tip-card p { font-size: 0.83rem; color: #555; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="site-nav">
+    <a href="/" class="nav-logo">🌡️ The Sauna Plunge</a>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <ul class="nav-links">
+      <li><a href="/gym-guide/">Gym Guide</a></li>
+      <li><a href="/cold-plunge/">Cold Plunge</a></li>
+      <li><a href="/home-sauna/">Home Sauna</a></li>
+      <li><a href="/find-sauna-near-me/" class="nav-active">Find Near Me</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="finder-hero">
+  <h1>Find a Sauna or Cold Plunge Near You</h1>
+  <p>Enter your zip code to discover saunas, spas, gyms with sauna access, and cold plunge facilities in your area.</p>
+  <form class="search-box" id="searchForm" onsubmit="return false;">
+    <input type="text" id="zipInput" placeholder="Enter zip code…" maxlength="5" pattern="[0-9]{5}" inputmode="numeric" />
+    <select id="radiusSelect">
+      <option value="8047">5 miles</option>
+      <option value="16093" selected>10 miles</option>
+      <option value="24140">15 miles</option>
+      <option value="40234">25 miles</option>
+    </select>
+    <button type="submit" id="searchBtn" onclick="doSearch()">Search</button>
+  </form>
+</section>
+
+<div style="max-width:1100px; margin: 32px auto 0; padding: 0 24px;">
+  <div class="finder-layout">
+    <!-- Results list -->
+    <div class="results-panel" id="resultsPanel">
+      <div class="finder-state" id="stateEmpty">
+        <div class="state-icon">📍</div>
+        <p>Enter a zip code above to find saunas and cold plunges near you</p>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div id="map"></div>
+  </div>
+</div>
+
+<div class="finder-tips">
+  <div class="tip-card">
+    <div class="tip-icon">🏛️</div>
+    <h3>Gyms with Saunas</h3>
+    <p>LA Fitness, Gold's Gym, Life Time Fitness, and the YMCA are your best bets for sauna access on a monthly membership.</p>
+  </div>
+  <div class="tip-card">
+    <div class="tip-icon">💧</div>
+    <h3>Cold Plunge Access</h3>
+    <p>Life Time Fitness and Equinox offer cold plunge pools at select locations. Dedicated cryotherapy studios are also a great option.</p>
+  </div>
+  <div class="tip-card">
+    <div class="tip-icon">🌿</div>
+    <h3>Day Spas</h3>
+    <p>Many Korean day spas (jjimjilbang) offer authentic sauna experiences for $20–$40, no membership needed.</p>
+  </div>
+  <div class="tip-card">
+    <div class="tip-icon">🏠</div>
+    <h3>Nothing Nearby?</h3>
+    <p>Build your own. A <a href="/diy-cold-plunge/">DIY cold plunge</a> costs under $200 and a <a href="/home-sauna-cost/">home sauna</a> starts around $3,000.</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p>&copy; 2025 The Sauna Plunge &nbsp;·&nbsp; <a href="/about/">About & Disclosure</a></p>
+  </div>
+</footer>
+
+<!-- Leaflet JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="/js/site.js"></script>
+
+<script>
+// ── Map init ──────────────────────────────────────────────────────────────
+const map = L.map('map').setView([39.5, -98.35], 4);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  maxZoom: 18
+}).addTo(map);
+
+// Custom marker icons
+function makeIcon(color) {
+  return L.divIcon({
+    className: '',
+    html: `<div style="
+      width:28px;height:28px;border-radius:50% 50% 50% 0;
+      background:${color};border:2px solid white;
+      transform:rotate(-45deg);
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+    "></div>`,
+    iconSize: [28, 28],
+    iconAnchor: [14, 28],
+    popupAnchor: [0, -30]
+  });
+}
+
+const icons = {
+  sauna:    makeIcon('#ff7043'),
+  spa:      makeIcon('#ab47bc'),
+  gym:      makeIcon('#43a047'),
+  wellness: makeIcon('#1e88e5')
+};
+
+let markers = [];
+let userMarker = null;
+let circle = null;
+
+function clearMap() {
+  markers.forEach(m => map.removeLayer(m));
+  markers = [];
+  if (userMarker) { map.removeLayer(userMarker); userMarker = null; }
+  if (circle) { map.removeLayer(circle); circle = null; }
+}
+
+// ── Search ────────────────────────────────────────────────────────────────
+async function doSearch() {
+  const zip = document.getElementById('zipInput').value.trim();
+  const radius = parseInt(document.getElementById('radiusSelect').value);
+
+  if (!/^\d{5}$/.test(zip)) {
+    showError('Please enter a valid 5-digit US zip code.');
+    return;
+  }
+
+  setLoading();
+
+  try {
+    // Step 1: zip → lat/lng via Nominatim
+    const geoRes = await fetch(
+      `https://nominatim.openstreetmap.org/search?format=json&postalcode=${zip}&countrycodes=us&limit=1`,
+      { headers: { 'Accept-Language': 'en' } }
+    );
+    const geoData = await geoRes.json();
+
+    if (!geoData.length) {
+      showError(`Zip code "${zip}" not found. Please check and try again.`);
+      return;
+    }
+
+    const lat = parseFloat(geoData[0].lat);
+    const lon = parseFloat(geoData[0].lon);
+    const placeName = geoData[0].display_name.split(',').slice(0,2).join(',');
+
+    // Step 2: Overpass API query for sauna/spa/gym
+    const radiusMiles = Math.round(radius / 1609);
+    const overpassQuery = `
+      [out:json][timeout:30];
+      (
+        node["amenity"="sauna"](around:${radius},${lat},${lon});
+        way["amenity"="sauna"](around:${radius},${lat},${lon});
+        node["leisure"="sauna"](around:${radius},${lat},${lon});
+        node["leisure"="spa"](around:${radius},${lat},${lon});
+        way["leisure"="spa"](around:${radius},${lat},${lon});
+        node["amenity"="spa"](around:${radius},${lat},${lon});
+        way["amenity"="spa"](around:${radius},${lat},${lon});
+        node["leisure"="fitness_centre"]["sauna"="yes"](around:${radius},${lat},${lon});
+        way["leisure"="fitness_centre"]["sauna"="yes"](around:${radius},${lat},${lon});
+        node["leisure"="sports_centre"]["sauna"="yes"](around:${radius},${lat},${lon});
+        way["leisure"="sports_centre"]["sauna"="yes"](around:${radius},${lat},${lon});
+        node["leisure"="swimming_pool"]["sauna"="yes"](around:${radius},${lat},${lon});
+      );
+      out center tags;
+    `;
+
+    const overpassRes = await fetch('https://overpass-api.de/api/interpreter', {
+      method: 'POST',
+      body: 'data=' + encodeURIComponent(overpassQuery)
+    });
+    const overpassData = await overpassRes.json();
+
+    processResults(overpassData.elements, lat, lon, placeName, radius);
+
+  } catch (err) {
+    showError('Could not load results. Please check your internet connection and try again.');
+    console.error(err);
+  }
+}
+
+// ── Process & display results ─────────────────────────────────────────────
+function processResults(elements, centerLat, centerLon, placeName, radius) {
+  clearMap();
+
+  // Add user location marker + radius circle
+  userMarker = L.circleMarker([centerLat, centerLon], {
+    radius: 10, fillColor: '#1a3a4a', color: 'white',
+    fillOpacity: 1, weight: 2
+  }).addTo(map).bindPopup(`<strong>Your location</strong><br>${placeName}`);
+
+  circle = L.circle([centerLat, centerLon], {
+    radius, color: '#2d6a8a', fillColor: '#2d6a8a',
+    fillOpacity: 0.05, weight: 1, dashArray: '6'
+  }).addTo(map);
+
+  if (!elements.length) {
+    showNoResults(placeName);
+    map.setView([centerLat, centerLon], 12);
+    return;
+  }
+
+  // Deduplicate by name + lat
+  const seen = new Set();
+  const places = elements.filter(el => {
+    const key = (el.tags?.name || '') + Math.round((el.lat || el.center?.lat || 0) * 1000);
+    if (seen.has(key) || !el.tags?.name) return false;
+    seen.add(key);
+    return true;
+  });
+
+  if (!places.length) {
+    showNoResults(placeName);
+    map.setView([centerLat, centerLon], 12);
+    return;
+  }
+
+  // Sort by distance
+  places.forEach(el => {
+    const elLat = el.lat || el.center?.lat;
+    const elLon = el.lon || el.center?.lon;
+    el._dist = haversine(centerLat, centerLon, elLat, elLon);
+    el._lat = elLat;
+    el._lon = elLon;
+  });
+  places.sort((a, b) => a._dist - b._dist);
+
+  // Render list
+  const panel = document.getElementById('resultsPanel');
+  panel.innerHTML = `<div class="results-header">
+    <strong>${places.length} place${places.length !== 1 ? 's' : ''}</strong> found within ${Math.round(radius/1609)} miles of ${placeName}
+  </div>`;
+
+  const bounds = [[centerLat, centerLon]];
+
+  places.forEach((el, i) => {
+    const tags = el.tags || {};
+    const name = tags.name || 'Unnamed Place';
+    const addr = [tags['addr:housenumber'], tags['addr:street'], tags['addr:city']]
+      .filter(Boolean).join(' ') || tags['addr:full'] || '';
+    const type = classifyType(tags);
+    const dist = el._dist < 1 ? `${Math.round(el._dist * 5280)} ft` : `${el._dist.toFixed(1)} mi`;
+    const gmapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(name + ' ' + (tags['addr:city'] || ''))}`;
+    const phone = tags.phone || tags['contact:phone'] || '';
+    const website = tags.website || tags['contact:website'] || '';
+
+    bounds.push([el._lat, el._lon]);
+
+    // Map marker
+    const marker = L.marker([el._lat, el._lon], { icon: icons[type.key] })
+      .addTo(map)
+      .bindPopup(`
+        <strong>${name}</strong><br>
+        <span style="font-size:0.82rem;color:#666">${type.label}</span><br>
+        ${addr ? `<span style="font-size:0.82rem">${addr}</span><br>` : ''}
+        <a href="${gmapsLink}" target="_blank" style="font-size:0.82rem;color:#2d6a8a">Get Directions →</a>
+      `);
+    markers.push(marker);
+
+    // List item
+    const item = document.createElement('div');
+    item.className = 'result-item';
+    item.dataset.index = i;
+    item.innerHTML = `
+      <span class="result-type type-${type.key}">${type.label}</span>
+      <h3>${name}</h3>
+      ${addr ? `<div class="result-addr">📍 ${addr}</div>` : ''}
+      <div class="result-dist">📏 ${dist} away</div>
+      <div class="result-links">
+        <a href="${gmapsLink}" target="_blank">Directions</a>
+        ${phone ? `<a href="tel:${phone}">Call</a>` : ''}
+        ${website ? `<a href="${website}" target="_blank">Website</a>` : ''}
+      </div>
+    `;
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.result-item').forEach(el => el.classList.remove('active'));
+      item.classList.add('active');
+      map.setView([el._lat, el._lon], 15);
+      marker.openPopup();
+    });
+    panel.appendChild(item);
+  });
+
+  // Fit map to results
+  if (bounds.length > 1) {
+    map.fitBounds(bounds, { padding: [40, 40], maxZoom: 14 });
+  }
+
+  document.getElementById('searchBtn').disabled = false;
+}
+
+// ── Helper: classify OSM type ─────────────────────────────────────────────
+function classifyType(tags) {
+  const amenity = tags.amenity || '';
+  const leisure = tags.leisure || '';
+  if (amenity === 'sauna' || leisure === 'sauna') return { key: 'sauna', label: '🔥 Sauna' };
+  if (amenity === 'spa' || leisure === 'spa')     return { key: 'spa',   label: '💆 Spa' };
+  if (leisure === 'fitness_centre')               return { key: 'gym',   label: '🏋️ Gym w/ Sauna' };
+  if (leisure === 'sports_centre')                return { key: 'gym',   label: '🏊 Sports Centre' };
+  return { key: 'wellness', label: '✨ Wellness' };
+}
+
+// ── Helper: distance in miles ─────────────────────────────────────────────
+function haversine(lat1, lon1, lat2, lon2) {
+  const R = 3958.8;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180) * Math.cos(lat2*Math.PI/180) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+// ── UI states ─────────────────────────────────────────────────────────────
+function setLoading() {
+  document.getElementById('searchBtn').disabled = true;
+  document.getElementById('resultsPanel').innerHTML = `
+    <div class="finder-state">
+      <div class="spinner"></div>
+      <p>Searching for saunas near you…</p>
+    </div>`;
+}
+
+function showError(msg) {
+  document.getElementById('searchBtn').disabled = false;
+  document.getElementById('resultsPanel').innerHTML = `
+    <div class="error-box">⚠️ ${msg}</div>
+    <div class="finder-state"><div class="state-icon">🔍</div><p>Try a different zip code or radius.</p></div>`;
+}
+
+function showNoResults(place) {
+  document.getElementById('searchBtn').disabled = false;
+  document.getElementById('resultsPanel').innerHTML = `
+    <div class="results-header"><strong>0 places</strong> found near ${place}</div>
+    <div class="finder-state">
+      <div class="state-icon">😕</div>
+      <p>No saunas or spas found in OpenStreetMap for this area. Try a larger radius, or check Google Maps directly.</p>
+      <br>
+      <a href="https://www.google.com/maps/search/sauna+near+me" target="_blank" style="color:#2d6a8a;font-size:0.9rem">Search Google Maps →</a>
+    </div>`;
+}
+
+// Allow Enter key in zip input
+document.getElementById('zipInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doSearch();
+});
+</script>
+
+</body>
+</html>
