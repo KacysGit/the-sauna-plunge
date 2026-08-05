@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /DEPLOY-INSTRUCTIONS.html
+Disallow: /passive-income-niche-report.html
+Disallow: /content-calendar-research.html
 
 Sitemap: https://the-sauna-plunge.com/sitemap.xml

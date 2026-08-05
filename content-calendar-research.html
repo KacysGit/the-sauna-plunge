@@ -3,20 +3,790 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Content Calendar Research ℔ Sauna & Plunge</title>
-|meta name="description" content="Content calendar research and strategy for the Sauna & Plunge website.">
-<link rel="stylesheet" href="/style.css">
+<title>Keyword Guide & Content Calendar — The Sauna & Plunge</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f0e8; color: #0f2030; }
+  header { background: #0f2030; color: #f5f0e8; padding: 24px 32px; }
+  header h1 { font-size: 1.5rem; font-weight: 700; }
+  header p { font-size: 0.85rem; color: #3dbf94; margin-top: 4px; }
+  .stats { display: flex; gap: 16px; padding: 20px 32px; background: #1a3a4a; flex-wrap: wrap; }
+  .stat { background: #0f2030; color: #f5f0e8; border-radius: 8px; padding: 12px 20px; text-align: center; min-width: 120px; }
+  .stat .n { font-size: 1.8rem; font-weight: 700; color: #3dbf94; }
+  .stat .l { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; margin-top: 2px; }
+  .container { padding: 24px 32px; }
+  h2 { font-size: 1.15rem; font-weight: 700; margin: 32px 0 12px; color: #0f2030; border-left: 4px solid #3dbf94; padding-left: 10px; }
+  .legend { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.8rem; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; }
+  .badge-published { background: #d4edda; color: #155724; }
+  .badge-priority1 { background: #f8d7da; color: #721c24; }
+  .badge-priority2 { background: #fff3cd; color: #856404; }
+  .badge-priority3 { background: #d1ecf1; color: #0c5460; }
+  .badge-easy { background: #d4edda; color: #155724; }
+  .badge-medium { background: #fff3cd; color: #856404; }
+  .badge-hard { background: #f8d7da; color: #721c24; }
+  table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 32px; font-size: 0.85rem; }
+  th { background: #0f2030; color: #f5f0e8; padding: 10px 12px; text-align: left; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 9px 12px; border-bottom: 1px solid #f0e8df; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover { background: #faf7f3; }
+  .url { font-family: monospace; font-size: 0.78rem; color: #1a3a4a; }
+  .vol { font-weight: 600; color: #0f2030; }
+  .notes { color: #555; font-size: 0.8rem; }
+  .week-num { font-weight: 700; color: #3dbf94; min-width: 48px; display: inline-block; }
+  .cal-kw { font-weight: 600; }
+  .cal-slug { font-family: monospace; font-size: 0.75rem; color: #3dbf94; }
+  .cal-why { font-size: 0.78rem; color: #555; }
+  .section-intro { background: white; border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; font-size: 0.85rem; line-height: 1.6; color: #333; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .competitor-note { background: #fff3cd; border: 1px solid #ffc107; border-radius: 6px; padding: 10px 14px; font-size: 0.82rem; margin-bottom: 12px; color: #856404; }
+  .tip { background: #d4edda; border: 1px solid #28a745; border-radius: 6px; padding: 10px 14px; font-size: 0.82rem; margin-bottom: 12px; color: #155724; }
+  .warn { background: #f8d7da; border: 1px solid #f5c6cb; border-radius: 6px; padding: 10px 14px; font-size: 0.82rem; margin-bottom: 12px; color: #721c24; }
+</style>
 </head>
 <body>
-<header class="site-header">
+
+<header>
+  <h1>Keyword Guide &amp; 26-Week Content Calendar — The Sauna &amp; Plunge</h1>
+  <p>Last rebuilt: August 5, 2026 &nbsp;·&nbsp; the-sauna-plunge.com &nbsp;·&nbsp; KacysGit/the-sauna-plunge</p>
 </header>
-<mj)� class="page-wrap">
-<h1>Content Calendar Research</h1>
-<p>Material for researching and planning content for this website.</p>
-$oVarious topics on saunas and cold plunges are discussed identifying key articles, adsense opportunities, and the potential for passive income."</p>
-</main>
-<footer class="site-footer">
-</footer>
-<script src="/js/site.js"></script>
+
+<div class="stats">
+  <div class="stat"><div class="n">21</div><div class="l">Live Pages</div></div>
+  <div class="stat"><div class="n">38</div><div class="l">New Targets</div></div>
+  <div class="stat"><div class="n">26</div><div class="l">Weeks Planned</div></div>
+  <div class="stat"><div class="n">4</div><div class="l">Clusters</div></div>
+  <div class="stat"><div class="n">~1M+</div><div class="l">Total Monthly Vol</div></div>
+</div>
+
+<div class="container">
+
+  <div class="tip">&#x1F4A1; <strong>How this works:</strong> The weekly scheduled task reads the content calendar, picks the next Priority 1 keyword in sequence, generates a full HTML page, and pushes it to GitHub. Netlify auto-deploys. Sitemap updates automatically each run.</div>
+
+  <div class="warn">&#x26A0;&#xFE0F; <strong>Data note:</strong> The original Ahrefs keyword research (pulled March 2026) was in a non-persistent session folder and did not survive a VM reset. This guide was rebuilt August 5, 2026 from public keyword databases (Portland SEO Growth, Accio.com, market research). Volumes are directional estimates. To restore exact numbers: renew Ahrefs and run Keywords Explorer &rarr; Matching Terms for seeds: "cold plunge", "sauna", "gym sauna".</div>
+
+  <!-- ============================== CLUSTER 1: GYM SAUNA ============================== -->
+  <h2>Cluster 1: Gym Sauna Guides (Top Traffic Driver)</h2>
+  <div class="section-intro">
+    These "does [gym] have a sauna" pages are the site's #1 traffic cluster. The LA Fitness page already gets 846 impressions at position ~20. The pattern is proven — every major gym chain is a new page opportunity. Low difficulty because they're informational with a specific answer, and established SEO sites ignore them.
+  </div>
+  <div class="competitor-note">&#x26A0;&#xFE0F; Key competitor: <strong>gymswithsauna.com</strong> — ranks for nearly every gym chain query. Beat them with longer pages: specific location counts, membership prices, steam room vs. dry sauna breakdown, and which specific locations have them.</div>
+
+  <table>
+    <tr><th>Status</th><th>Keyword</th><th>Monthly Vol (est.)</th><th>Difficulty</th><th>URL Slug</th><th>Notes</th></tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>does la fitness have a sauna</td>
+      <td class="vol">2,200</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/does-la-fitness-have-sauna/</td>
+      <td class="notes">846 impressions, pos ~20. Top performer. Needs depth upgrade.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>does planet fitness have a sauna</td>
+      <td class="vol">4,400</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-planet-fitness-have-sauna/</td>
+      <td class="notes">Answer: No. Huge volume. Good for comparison article.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>does anytime fitness have a sauna</td>
+      <td class="vol">1,800</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-anytime-fitness-have-sauna/</td>
+      <td class="notes">Answer: ~60% of locations. Franchise variability angle.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>does ymca have a sauna</td>
+      <td class="vol">1,600</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-ymca-have-sauna/</td>
+      <td class="notes">Answer: Most do. Good evergreen traffic source.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>does 24 hour fitness have a sauna</td>
+      <td class="vol">1,200</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-24-hour-fitness-have-sauna/</td>
+      <td class="notes">Answer: Yes at most clubs.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>gym with sauna near me</td>
+      <td class="vol">3,500</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/gym-with-sauna-near-me/</td>
+      <td class="notes">Local intent. Needs Google Maps embed + chain list.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>find sauna near me</td>
+      <td class="vol">2,100</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/find-sauna-near-me/</td>
+      <td class="notes">Broad local intent page.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>gym sauna guide</td>
+      <td class="vol">1,000</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/gym-guide/</td>
+      <td class="notes">Hub page. Link all gym chain pages here.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>does equinox have a sauna</td>
+      <td class="vol">2,900</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-equinox-have-sauna/</td>
+      <td class="notes">Answer: Yes — steam room + dry sauna at most clubs. Premium wellness audience.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>does lifetime fitness have a sauna</td>
+      <td class="vol">2,400</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-lifetime-fitness-have-sauna/</td>
+      <td class="notes">Answer: Yes — nearly all locations. High-end brand, health-focused audience.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>does crunch fitness have a sauna</td>
+      <td class="vol">1,100</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-crunch-fitness-have-sauna/</td>
+      <td class="notes">Answer: Select locations only. Fast-growing chain.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>does gold's gym have a sauna</td>
+      <td class="vol">900</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-golds-gym-have-sauna/</td>
+      <td class="notes">Answer: Yes at many locations. Classic iconic brand.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>does blink fitness have a sauna</td>
+      <td class="vol">700</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-blink-fitness-have-sauna/</td>
+      <td class="notes">Answer: No. Budget chain comparison content.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>does snap fitness have a sauna</td>
+      <td class="vol">600</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-snap-fitness-have-sauna/</td>
+      <td class="notes">Answer: Some locations. 24/7 franchise gym.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>does la fitness have a steam room</td>
+      <td class="vol">800</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-la-fitness-have-steam-room/</td>
+      <td class="notes">Variation on top page. Internal link from LA Fitness page.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>gyms with sauna and cold plunge near me</td>
+      <td class="vol">1,400</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/gyms-with-sauna-and-cold-plunge-near-me/</td>
+      <td class="notes">Bridges gym + cold plunge clusters. Very high intent buyer.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>does orangetheory have a sauna</td>
+      <td class="vol">500</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-orangetheory-have-sauna/</td>
+      <td class="notes">Answer: No. HIIT-focused studio.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>does planet fitness have a pool</td>
+      <td class="vol">3,800</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/does-planet-fitness-have-a-pool/</td>
+      <td class="notes">Answer: No. Very high volume — proven Planet Fitness intent.</td>
+    </tr>
+  </table>
+
+  <!-- ============================== CLUSTER 2: COLD PLUNGE ============================== -->
+  <h2>Cluster 2: Cold Plunge (Informational + Commercial)</h2>
+  <div class="section-intro">
+    Cold plunge is a massive trending category. The site covers the commercial side (tubs, chillers) and frequency/temperature. Major gaps: benefits, timing, recovery use cases, comparison content. These pages build topical authority and drive affiliate traffic for tub and chiller products.
+  </div>
+
+  <table>
+    <tr><th>Status</th><th>Keyword</th><th>Monthly Vol (est.)</th><th>Difficulty</th><th>URL Slug</th><th>Notes</th></tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>best cold plunge tubs</td>
+      <td class="vol">590</td>
+      <td><span class="badge badge-hard">Hard</span></td>
+      <td class="url">/best-cold-plunge-tubs/</td>
+      <td class="notes">7,080/yr. Commercial intent, affiliate potential. Needs product comparison table.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>cold plunge temperature</td>
+      <td class="vol">450</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/cold-plunge-temperature/</td>
+      <td class="notes">What temp for cold plunge. Solid evergreen content.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>how often to cold plunge</td>
+      <td class="vol">380</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/how-often-to-cold-plunge/</td>
+      <td class="notes">Frequency guide. Internal link from main cold plunge hub.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>cold plunge chiller</td>
+      <td class="vol">300</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/cold-plunge-chiller/</td>
+      <td class="notes">Best water chiller for cold plunge: 2,040/yr. Commercial intent.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>diy cold plunge</td>
+      <td class="vol">700</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/diy-cold-plunge/</td>
+      <td class="notes">Best DIY cold plunge: 840/yr. Popular budget-conscious audience.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>cold plunge near me</td>
+      <td class="vol">5,400</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/cold-plunge-near-me/</td>
+      <td class="notes">64,800/yr! Biggest uncovered keyword. Cover spas, gyms, public pools.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>cold plunge benefits</td>
+      <td class="vol">3,200</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/cold-plunge-benefits/</td>
+      <td class="notes">Top-of-funnel anchor. Links to every other cold plunge page.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>ice bath vs cold plunge</td>
+      <td class="vol">1,800</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/ice-bath-vs-cold-plunge/</td>
+      <td class="notes">Comparison content. Low competition, clear definitive answer.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>cold plunge before or after workout</td>
+      <td class="vol">1,500</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/cold-plunge-before-or-after-workout/</td>
+      <td class="notes">High-intent fitness crossover. Pre vs. post recovery science.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>how long to cold plunge</td>
+      <td class="vol">1,200</td>
+      <td><span class="badge badge-hard">Hard</span></td>
+      <td class="url">/how-long-to-cold-plunge/</td>
+      <td class="notes">How long stay in cold plunge: 840/yr. Most searched duration question.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>cold plunge testosterone</td>
+      <td class="vol">1,100</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/cold-plunge-testosterone/</td>
+      <td class="notes">Male biohacking audience. High engagement, strong social sharing.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>cold plunge morning vs night</td>
+      <td class="vol">800</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/cold-plunge-morning-vs-night/</td>
+      <td class="notes">Best time of day to cold plunge: 840/yr. Easy differentiator.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>cold plunge for anxiety and depression</td>
+      <td class="vol">900</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/cold-plunge-mental-health/</td>
+      <td class="notes">Growing mental health angle. Norepinephrine/dopamine research backing.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>cold plunge for sleep</td>
+      <td class="vol">700</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/cold-plunge-for-sleep/</td>
+      <td class="notes">Evening cold plunge + core body temp drop = better sleep quality.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>chest freezer cold plunge</td>
+      <td class="vol">840</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/chest-freezer-cold-plunge/</td>
+      <td class="notes">DIY budget audience. Affiliate: chest freezers + chillers. Links to diy-cold-plunge.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>stock tank cold plunge</td>
+      <td class="vol">600</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/stock-tank-cold-plunge/</td>
+      <td class="notes">Budget DIY option. Affiliate for stock tanks + chillers.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>cold plunge calories burned</td>
+      <td class="vol">600</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/cold-plunge-calories-burned/</td>
+      <td class="notes">360/yr. Weight loss angle. Links to cold-plunge-benefits.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>how to cold plunge in bathtub</td>
+      <td class="vol">500</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/cold-plunge-in-bathtub/</td>
+      <td class="notes">No-equipment option. Can I cold plunge in my bathtub: 480/yr. Apartment audience.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>portable cold plunge</td>
+      <td class="vol">840</td>
+      <td><span class="badge badge-hard">Hard</span></td>
+      <td class="url">/portable-cold-plunge/</td>
+      <td class="notes">Best portable cold plunge: 840/yr. Commercial intent, affiliate tubs.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>cold plunge for weight loss</td>
+      <td class="vol">700</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/cold-plunge-weight-loss/</td>
+      <td class="notes">Brown fat activation angle. Links to calories-burned page.</td>
+    </tr>
+  </table>
+
+  <!-- ============================== CLUSTER 3: HOME SAUNA ============================== -->
+  <h2>Cluster 3: Home Sauna (Highest Affiliate Value)</h2>
+  <div class="section-intro">
+    Home sauna products carry the highest affiliate commissions ($300–$800+ average ticket). Infrared saunas, outdoor barrel saunas, and portable options are distinct audiences. The site has basic hub pages but is missing product-specific and type-specific buying guides.
+  </div>
+
+  <table>
+    <tr><th>Status</th><th>Keyword</th><th>Monthly Vol (est.)</th><th>Difficulty</th><th>URL Slug</th><th>Notes</th></tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>home sauna</td>
+      <td class="vol">8,100</td>
+      <td><span class="badge badge-hard">Hard</span></td>
+      <td class="url">/home-sauna/</td>
+      <td class="notes">Hub page. Link all home sauna subtopics here.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>home sauna cost</td>
+      <td class="vol">2,400</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/home-sauna-cost/</td>
+      <td class="notes">Buying-stage content. Price ranges by type.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>sauna at home</td>
+      <td class="vol">1,800</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/sauna-at-home/</td>
+      <td class="notes">Overlaps home-sauna. Needs clear differentiation in scope.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>costco sauna</td>
+      <td class="vol">1,200</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/costco-sauna/</td>
+      <td class="notes">Seasonal (peaks Oct–Dec). Budget-conscious buyers.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>infrared sauna for home</td>
+      <td class="vol">4,400</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/infrared-sauna-for-home/</td>
+      <td class="notes">Highest affiliate value. Buyer's guide with product comparison table.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>outdoor sauna</td>
+      <td class="vol">5,500</td>
+      <td><span class="badge badge-hard">Hard</span></td>
+      <td class="url">/outdoor-sauna/</td>
+      <td class="notes">Barrel vs. cabin style. Premium audience, highest-ticket affiliate commissions.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>barrel sauna</td>
+      <td class="vol">3,600</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/barrel-sauna/</td>
+      <td class="notes">Best barrel sauna guide. Specific buyer intent. Strong affiliate page.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>infrared sauna benefits</td>
+      <td class="vol">3,100</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/infrared-sauna-benefits/</td>
+      <td class="notes">Top of funnel. Leads to infrared sauna product page. Long-form research.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>sauna benefits</td>
+      <td class="vol">5,400</td>
+      <td><span class="badge badge-hard">Hard</span></td>
+      <td class="url">/sauna-benefits/</td>
+      <td class="notes">Very high volume. Important for topical authority.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>2 person sauna</td>
+      <td class="vol">2,200</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/2-person-sauna/</td>
+      <td class="notes">Most common residential size. Buyer's guide with product table.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>portable sauna</td>
+      <td class="vol">2,900</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/portable-sauna/</td>
+      <td class="notes">Sauna tent / steam tent. Budget option. Apartment-friendly.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>sauna before or after workout</td>
+      <td class="vol">2,100</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/sauna-before-or-after-workout/</td>
+      <td class="notes">Fitness audience crossover. Science-backed answer. Easy win.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>sauna benefits for weight loss</td>
+      <td class="vol">1,800</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/sauna-calories-burned/</td>
+      <td class="notes">Calorie/weight loss angle. Links to sauna-benefits.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>home sauna kit</td>
+      <td class="vol">1,100</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/home-sauna-kit/</td>
+      <td class="notes">DIY installation kits. Budget builder audience.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>sauna tent</td>
+      <td class="vol">2,400</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/sauna-tent/</td>
+      <td class="notes">Best sauna tent / steam tent. Affiliate opportunity. Links to portable-sauna.</td>
+    </tr>
+  </table>
+
+  <!-- ============================== CLUSTER 4: CONTRAST THERAPY ============================== -->
+  <h2>Cluster 4: Sauna + Cold Plunge (Contrast Therapy)</h2>
+  <div class="section-intro">
+    Contrast therapy is the site's unique positioning — it bridges both audiences. These pages have lower competition than standalone sauna or cold plunge content and cement the site as the authority on the combined practice.
+  </div>
+
+  <table>
+    <tr><th>Status</th><th>Keyword</th><th>Monthly Vol (est.)</th><th>Difficulty</th><th>URL Slug</th><th>Notes</th></tr>
+    <tr>
+      <td><span class="badge badge-published">Published</span></td>
+      <td>sauna and cold plunge</td>
+      <td class="vol">1,800</td>
+      <td><span class="badge badge-medium">Medium</span></td>
+      <td class="url">/sauna-and-cold-plunge/</td>
+      <td class="notes">Contrast therapy hub. Link all subtopics here.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority1">Priority 1</span></td>
+      <td>sauna before or after cold plunge</td>
+      <td class="vol">1,200</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/sauna-before-or-after-cold-plunge/</td>
+      <td class="notes">Most common contrast therapy question. Easy win, clear answer.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>contrast therapy benefits</td>
+      <td class="vol">900</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/contrast-therapy-benefits/</td>
+      <td class="notes">Science + benefits page. Builds topical authority for the cluster.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority2">Priority 2</span></td>
+      <td>sauna cold plunge routine</td>
+      <td class="vol">700</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/sauna-cold-plunge-routine/</td>
+      <td class="notes">Best protocol guide with timing recommendations.</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-priority3">Priority 3</span></td>
+      <td>cold plunge after sauna benefits</td>
+      <td class="vol">600</td>
+      <td><span class="badge badge-easy">Easy</span></td>
+      <td class="url">/cold-plunge-after-sauna-benefits/</td>
+      <td class="notes">Specific variant. Links to sauna-and-cold-plunge hub.</td>
+    </tr>
+  </table>
+
+  <!-- ============================== 26-WEEK CONTENT CALENDAR ============================== -->
+  <h2>26-Week Content Calendar (Weekly Auto-Publish Queue)</h2>
+  <div class="section-intro">
+    The weekly scheduled task reads this calendar top to bottom, picks the next unpublished keyword, generates a full page, and pushes to GitHub. Re-order rows to change priority. Mark rows with Published status above when a page goes live.
+  </div>
+
+  <table>
+    <tr><th>Week</th><th>Target Keyword</th><th>URL Slug</th><th>Vol/mo</th><th>Cluster</th><th>Why This Week</th></tr>
+    <tr>
+      <td><span class="week-num">Wk 1</span></td>
+      <td class="cal-kw">does equinox have a sauna</td>
+      <td class="cal-slug">/does-equinox-have-sauna/</td>
+      <td class="vol">2,900</td>
+      <td>Gym</td>
+      <td class="cal-why">Highest-volume uncovered gym chain. Proven easy-win pattern.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 2</span></td>
+      <td class="cal-kw">cold plunge near me</td>
+      <td class="cal-slug">/cold-plunge-near-me/</td>
+      <td class="vol">5,400</td>
+      <td>Cold Plunge</td>
+      <td class="cal-why">Site's biggest uncovered keyword (64,800/yr). Local intent, medium difficulty.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 3</span></td>
+      <td class="cal-kw">infrared sauna for home</td>
+      <td class="cal-slug">/infrared-sauna-for-home/</td>
+      <td class="vol">4,400</td>
+      <td>Home Sauna</td>
+      <td class="cal-why">Highest affiliate value. Buyer's guide with comparison table.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 4</span></td>
+      <td class="cal-kw">does lifetime fitness have a sauna</td>
+      <td class="cal-slug">/does-lifetime-fitness-have-sauna/</td>
+      <td class="vol">2,400</td>
+      <td>Gym</td>
+      <td class="cal-why">Second-highest uncovered gym chain. Simple pattern page.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 5</span></td>
+      <td class="cal-kw">cold plunge benefits</td>
+      <td class="cal-slug">/cold-plunge-benefits/</td>
+      <td class="vol">3,200</td>
+      <td>Cold Plunge</td>
+      <td class="cal-why">Top-of-funnel anchor. Links to every cold plunge page on the site.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 6</span></td>
+      <td class="cal-kw">outdoor sauna</td>
+      <td class="cal-slug">/outdoor-sauna/</td>
+      <td class="vol">5,500</td>
+      <td>Home Sauna</td>
+      <td class="cal-why">Huge volume. Premium audience, highest-ticket affiliate commissions.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 7</span></td>
+      <td class="cal-kw">sauna before or after cold plunge</td>
+      <td class="cal-slug">/sauna-before-or-after-cold-plunge/</td>
+      <td class="vol">1,200</td>
+      <td>Contrast</td>
+      <td class="cal-why">#1 most-asked contrast therapy question. Easy win with clear answer.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 8</span></td>
+      <td class="cal-kw">ice bath vs cold plunge</td>
+      <td class="cal-slug">/ice-bath-vs-cold-plunge/</td>
+      <td class="vol">1,800</td>
+      <td>Cold Plunge</td>
+      <td class="cal-why">Comparison content ranks well. Low competition, expert answer.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 9</span></td>
+      <td class="cal-kw">barrel sauna</td>
+      <td class="cal-slug">/barrel-sauna/</td>
+      <td class="vol">3,600</td>
+      <td>Home Sauna</td>
+      <td class="cal-why">Strong buyer intent. Product comparison + affiliate links.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 10</span></td>
+      <td class="cal-kw">does crunch fitness have a sauna</td>
+      <td class="cal-slug">/does-crunch-fitness-have-sauna/</td>
+      <td class="vol">1,100</td>
+      <td>Gym</td>
+      <td class="cal-why">Fast-growing gym chain. Easy informational page.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 11</span></td>
+      <td class="cal-kw">cold plunge before or after workout</td>
+      <td class="cal-slug">/cold-plunge-before-or-after-workout/</td>
+      <td class="vol">1,500</td>
+      <td>Cold Plunge</td>
+      <td class="cal-why">Fitness crossover audience. Science-backed article with clear recommendation.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 12</span></td>
+      <td class="cal-kw">infrared sauna benefits</td>
+      <td class="cal-slug">/infrared-sauna-benefits/</td>
+      <td class="vol">3,100</td>
+      <td>Home Sauna</td>
+      <td class="cal-why">Top of funnel for infrared sauna buyers. Long-form research content.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 13</span></td>
+      <td class="cal-kw">how long to cold plunge</td>
+      <td class="cal-slug">/how-long-to-cold-plunge/</td>
+      <td class="vol">1,200</td>
+      <td>Cold Plunge</td>
+      <td class="cal-why">Most-searched cold plunge timing question not yet covered.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 14</span></td>
+      <td class="cal-kw">sauna benefits</td>
+      <td class="cal-slug">/sauna-benefits/</td>
+      <td class="vol">5,400</td>
+      <td>Home Sauna</td>
+      <td class="cal-why">Very high volume. Cornerstone content for sauna cluster.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 15</span></td>
+      <td class="cal-kw">does gold's gym have a sauna</td>
+      <td class="cal-slug">/does-golds-gym-have-sauna/</td>
+      <td class="vol">900</td>
+      <td>Gym</td>
+      <td class="cal-why">Classic gym brand. Loyal member base searching this.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 16</span></td>
+      <td class="cal-kw">portable sauna</td>
+      <td class="cal-slug">/portable-sauna/</td>
+      <td class="vol">2,900</td>
+      <td>Home Sauna</td>
+      <td class="cal-why">Apartment-friendly option. Strong affiliate product page.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 17</span></td>
+      <td class="cal-kw">cold plunge testosterone</td>
+      <td class="cal-slug">/cold-plunge-testosterone/</td>
+      <td class="vol">1,100</td>
+      <td>Cold Plunge</td>
+      <td class="cal-why">High engagement in male wellness niche. Strong social sharing potential.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 18</span></td>
+      <td class="cal-kw">sauna before or after workout</td>
+      <td class="cal-slug">/sauna-before-or-after-workout/</td>
+      <td class="vol">2,100</td>
+      <td>Home Sauna</td>
+      <td class="cal-why">Easy win — clear science-backed answer. Fitness audience.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 19</span></td>
+      <td class="cal-kw">chest freezer cold plunge</td>
+      <td class="cal-slug">/chest-freezer-cold-plunge/</td>
+      <td class="vol">840</td>
+      <td>Cold Plunge</td>
+      <td class="cal-why">DIY budget audience. Affiliate: chest freezers + chillers.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 20</span></td>
+      <td class="cal-kw">2 person sauna</td>
+      <td class="cal-slug">/2-person-sauna/</td>
+      <td class="vol">2,200</td>
+      <td>Home Sauna</td>
+      <td class="cal-why">Most common residential size. Buyer's guide with product table.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 21</span></td>
+      <td class="cal-kw">gyms with sauna and cold plunge near me</td>
+      <td class="cal-slug">/gyms-with-sauna-and-cold-plunge-near-me/</td>
+      <td class="vol">1,400</td>
+      <td>Gym</td>
+      <td class="cal-why">High intent — bridges both clusters. Internal links to gym + cold plunge pages.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 22</span></td>
+      <td class="cal-kw">cold plunge for anxiety and depression</td>
+      <td class="cal-slug">/cold-plunge-mental-health/</td>
+      <td class="vol">900</td>
+      <td>Cold Plunge</td>
+      <td class="cal-why">Growing mental health angle. Strong emotional search intent.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 23</span></td>
+      <td class="cal-kw">sauna tent</td>
+      <td class="cal-slug">/sauna-tent/</td>
+      <td class="vol">2,400</td>
+      <td>Home Sauna</td>
+      <td class="cal-why">Budget portable sauna option. Affiliate product guide.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 24</span></td>
+      <td class="cal-kw">contrast therapy benefits</td>
+      <td class="cal-slug">/contrast-therapy-benefits/</td>
+      <td class="vol">900</td>
+      <td>Contrast</td>
+      <td class="cal-why">Topical authority for the site's unique positioning.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 25</span></td>
+      <td class="cal-kw">does la fitness have a steam room</td>
+      <td class="cal-slug">/does-la-fitness-have-steam-room/</td>
+      <td class="vol">800</td>
+      <td>Gym</td>
+      <td class="cal-why">Variation on top-performing page. Strong internal link opportunity.</td>
+    </tr>
+    <tr>
+      <td><span class="week-num">Wk 26</span></td>
+      <td class="cal-kw">sauna cold plunge routine</td>
+      <td class="cal-slug">/sauna-cold-plunge-routine/</td>
+      <td class="vol">700</td>
+      <td>Contrast</td>
+      <td class="cal-why">Protocol guide. Links to sauna-and-cold-plunge hub page.</td>
+    </tr>
+  </table>
+
+</div>
 </body>
 </html>

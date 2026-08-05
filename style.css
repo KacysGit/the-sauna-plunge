@@ -222,7 +222,7 @@ body { font-family: var(--font-body); color: var(--text); background: var(--whit
 /* ---- FOOTER ---- */
 .site-footer { background: var(--dark); color: #aac8d8; padding: 48px 24px 32px; margin-top: 80px; }
 .footer-inner { max-width: 1100px; margin: 0 auto; }
-.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
 .footer-brand .logo { font-family: var(--font-ui); font-size: 18px; font-weight: bold; color: var(--white); margin-bottom: 12px; }
 .footer-brand .logo span { color: var(--teal); }
 .footer-brand p { font-size: 14px; line-height: 1.6; }

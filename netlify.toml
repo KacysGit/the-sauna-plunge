@@ -1,0 +1,47 @@
+[build]
+  publish = "."
+
+[build.processing]
+  skip_processing = false
+
+[build.processing.html]
+  pretty_urls = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# Block non-content admin files from being indexed
+[[headers]]
+  for = "/DEPLOY-INSTRUCTIONS.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/passive-income-niche-report.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/content-calendar-research.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
